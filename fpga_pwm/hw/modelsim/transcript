@@ -1,0 +1,53 @@
+# Loading project fpga_pwm
+vsim work.tb_clk_div
+# vsim work.tb_clk_div 
+# Start time: 20:16:30 on Nov 08,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_clk_div(test)
+# Loading work.clk_div(comp)
+add wave -position insertpoint sim:/tb_clk_div/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+add wave -position insertpoint  \
+sim:/tb_clk_div/DUT/counter_reg \
+sim:/tb_clk_div/DUT/counter_next
+restart -f; run 3000 ns;
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+vsim work.tb_pwm
+# End time: 20:25:08 on Nov 08,2020, Elapsed time: 0:08:38
+# Errors: 0, Warnings: 2
+# vsim work.tb_pwm 
+# Start time: 20:25:08 on Nov 08,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_pwm(test)
+# Loading work.pwm(comp)
+# Loading work.clk_div(comp)
+add wave -position insertpoint sim:/tb_pwm/DUT/*
+add wave -position insertpoint  \
+sim:/tb_pwm/DUT/iRegPolarity \
+sim:/tb_pwm/DUT/iRegDuty \
+sim:/tb_pwm/DUT/iRegPeriod \
+sim:/tb_pwm/DUT/counter_reg \
+sim:/tb_pwm/DUT/counter_next
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_pwm/DUT
+run
+run
+run
+# End time: 23:25:09 on Nov 08,2020, Elapsed time: 3:00:01
+# Errors: 0, Warnings: 5

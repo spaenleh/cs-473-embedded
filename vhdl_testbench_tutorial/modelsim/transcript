@@ -1,1 +1,643 @@
 # Loading project vhdl_testbench_tutorial
+# reading /opt/intelFPGA/18.1/modelsim_ase/linuxaloem/../modelsim.ini
+# Loading project fpga_pwm
+# Compile of clk_div.vhd failed.
+# Compile of tb_clk_div.vhd failed.
+# Compile of clk_div.vhd failed with 3 errors.
+# Compile of tb_clk_div.vhd failed with 2 errors.
+# 2 compiles, 2 failed with 5 errors.
+# Compile of clk_div.vhd failed with 3 errors.
+# Compile of tb_clk_div.vhd failed with 2 errors.
+# 2 compiles, 2 failed with 5 errors.
+# Compile of clk_div.vhd failed with 2 errors.
+# Compile of tb_clk_div.vhd failed with 2 errors.
+# 2 compiles, 2 failed with 4 errors.
+# Compile of clk_div.vhd failed with 2 errors.
+# Compile of tb_clk_div.vhd failed with 2 errors.
+# 2 compiles, 2 failed with 4 errors.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd failed with 2 errors.
+# 2 compiles, 1 failed with 2 errors.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd failed with 3 errors.
+# 2 compiles, 1 failed with 3 errors.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd failed with 3 errors.
+# 2 compiles, 1 failed with 3 errors.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd failed with 3 errors.
+# 2 compiles, 1 failed with 3 errors.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_clk_div
+# vsim work.tb_clk_div 
+# Start time: 15:33:48 on Nov 08,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_clk_div(test)
+# Loading work.clk_div(comp)
+add wave -position insertpoint sim:/tb_clk_div/*
+restart -f: run -all;
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd failed with 7 errors.
+# 2 compiles, 1 failed with 7 errors.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f: run -all;
+# Loading work.tb_clk_div(test)
+# Loading work.clk_div(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f: run 10000 ns;
+# Loading work.tb_clk_div(test)
+# Loading work.clk_div(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+add wave -position insertpoint  \
+sim:/tb_clk_div/DUT/clk \
+sim:/tb_clk_div/DUT/nReset \
+sim:/tb_clk_div/DUT/enable \
+sim:/tb_clk_div/DUT/counter_reg \
+sim:/tb_clk_div/DUT/counter_next \
+sim:/tb_clk_div/DUT/MAX_COUNT
+run -all
+restart -f: run 10000 ns;
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+# Break key hit
+restart
+# Loading work.tb_clk_div(test)
+# Loading work.clk_div(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of clk_div.vhd failed with 3 errors.
+# Compile of tb_clk_div.vhd was successful.
+# 2 compiles, 1 failed with 3 errors.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_clk_div(test)
+# Loading work.clk_div(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 41 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 41 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 81 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 81 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 121 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 121 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 161 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 161 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 201 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 201 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 241 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 241 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 281 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 281 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 321 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 321 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 361 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 361 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 401 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 401 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 441 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 441 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 481 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 481 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 521 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 521 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 561 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 561 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 601 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 601 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 641 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 641 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 681 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 681 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 721 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 721 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 761 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 761 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 801 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 801 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 841 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 841 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 881 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 881 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 921 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 921 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 961 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 961 ns  Iteration: 0  Instance: /tb_clk_div/DUT
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_clk_div(test)
+# Loading work.clk_div(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 40 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 40 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 80 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 80 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 120 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 120 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 160 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 160 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 200 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 200 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 240 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 240 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 280 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 280 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 320 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 320 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 360 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 360 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 400 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 400 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 440 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 440 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 480 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 480 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 520 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 520 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 560 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 560 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 600 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 600 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 640 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 640 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 680 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 680 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 720 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 720 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 760 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 760 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 800 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 800 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 840 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 840 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 880 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 880 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 920 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 920 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 960 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 960 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 1 us  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1 us  Iteration: 2  Instance: /tb_clk_div/DUT
+restart
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 40 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 40 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 80 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 80 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 120 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 120 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 160 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 160 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 200 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 200 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 240 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 240 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 280 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 280 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 320 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 320 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 360 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 360 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 400 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 400 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 440 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 440 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 480 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 480 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+restart
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 40 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 40 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 80 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 80 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 120 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 120 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 160 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 160 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."<=": metavalue detected, returning FALSE
+#    Time: 200 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 200 ns  Iteration: 2  Instance: /tb_clk_div/DUT
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_clk_div(test)
+# Loading work.clk_div(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+run
+restart
+# Loading work.tb_clk_div(test)
+# Loading work.clk_div(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+restart
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_clk_div(test)
+# Loading work.clk_div(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_clk_div(test)
+# Loading work.clk_div(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_clk_div(test)
+# Loading work.clk_div(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# Compile of PWM.vhd failed.
+# Compile of tb_PWM.vhd failed.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# Compile of PWM.vhd was successful with warnings.
+# Compile of tb_PWM.vhd failed with 10 errors.
+# 4 compiles, 1 failed with 10 errors.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# Compile of PWM.vhd was successful with warnings.
+# Compile of tb_PWM.vhd failed with 10 errors.
+# 4 compiles, 1 failed with 10 errors.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# Compile of PWM.vhd was successful with warnings.
+# Compile of tb_PWM.vhd failed with 4 errors.
+# 4 compiles, 1 failed with 4 errors.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# Compile of PWM.vhd was successful.
+# Compile of tb_PWM.vhd failed with 5 errors.
+# 4 compiles, 1 failed with 5 errors.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# Compile of PWM.vhd was successful.
+# Compile of tb_PWM.vhd was successful.
+# 4 compiles, 0 failed with no errors.
+vsim work.tb_pwm
+# End time: 17:08:57 on Nov 08,2020, Elapsed time: 1:35:09
+# Errors: 0, Warnings: 155
+# vsim work.tb_pwm 
+# Start time: 17:08:57 on Nov 08,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_pwm(test)
+# Loading work.pwm(comp)
+# Loading work.clk_div(comp)
+add wave -position insertpoint sim:/tb_pwm/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_pwm/DUT
+run
+run
+run
+run
+add wave -position insertpoint  \
+sim:/tb_pwm/DUT/enable_clk
+restart
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_pwm/DUT
+run
+run
+run
+run
+run
+run
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# Compile of PWM.vhd was successful.
+# Compile of tb_PWM.vhd was successful.
+# 4 compiles, 0 failed with no errors.
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# Compile of PWM.vhd was successful.
+# Compile of tb_PWM.vhd was successful.
+# 4 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_pwm(test)
+# Loading work.pwm(comp)
+# Loading work.clk_div(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_pwm/DUT
+run
+run
+run
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# Compile of PWM.vhd was successful.
+# Compile of tb_PWM.vhd was successful.
+# 4 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_pwm(test)
+# Loading work.pwm(comp)
+# Loading work.clk_div(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_pwm/DUT
+run
+run
+run
+run
+add wave -position insertpoint  \
+sim:/tb_pwm/DUT/counter_reg
+restart
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_pwm/DUT
+run
+run
+run
+run
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# Compile of PWM.vhd was successful.
+# Compile of tb_PWM.vhd was successful.
+# 4 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_pwm(test)
+# Loading work.pwm(comp)
+# Loading work.clk_div(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_pwm/DUT
+run
+run
+run
+run
+run
+# Compile of clk_div.vhd was successful.
+# Compile of tb_clk_div.vhd was successful.
+# Compile of PWM.vhd was successful.
+# Compile of tb_PWM.vhd was successful.
+# 4 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_pwm(test)
+# Loading work.pwm(comp)
+# Loading work.clk_div(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_pwm/DUT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 20 ns  Iteration: 2  Instance: /tb_pwm/DUT
+run
+run
+run
+run
+# Break key hit
+# End time: 17:21:10 on Nov 08,2020, Elapsed time: 0:12:13
+# Errors: 0, Warnings: 35

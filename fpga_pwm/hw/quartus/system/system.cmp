@@ -1,0 +1,8 @@
+	component system is
+		port (
+			clk_clk         : in  std_logic := 'X'; -- clk
+			pwm_out_conduit : out std_logic;        -- conduit
+			reset_reset_n   : in  std_logic := 'X'  -- reset_n
+		);
+	end component system;
+
