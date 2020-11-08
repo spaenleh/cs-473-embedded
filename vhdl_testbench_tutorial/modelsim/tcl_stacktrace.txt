@@ -1,0 +1,45 @@
+Sat Nov 07 09:40:51 CET 2020
+Trace back: ** Error: (vish-7) Failed to open mpf file "/home/vm/Desktop/shared/vhdl_testbench_tutorial/modelsim/vhdl_testbench_tutorial.mpf" in write mode.
+Operation not permitted. (errno = EPERM)
+
+    while executing
+"ProjectWrite /home/vm/Desktop/shared/vhdl_testbench_tutorial/modelsim/vhdl_testbench_tutorial.mpf 6 work unused {} {} {} 0 1 {} ForceSoftPaths 0 Proje..."
+    ("eval" body line 1)
+    invoked from within
+"eval [linsert $ProjectWriteArgs 0 ProjectWrite ]"
+    (procedure "Project::saveProjectSpecificSettings" line 55)
+    invoked from within
+"Project::saveProjectSpecificSettings"
+    (procedure "Project::saveProjectData" line 5)
+    invoked from within
+"Project::saveProjectData"
+    (procedure "Project::readProjectSpecificSettings" line 24)
+    invoked from within
+"Project::readProjectSpecificSettings $new_project"
+    (procedure "Project::loadSettings" line 76)
+    invoked from within
+"Project::loadSettings $new_project"
+    (procedure "Project::load" line 154)
+    invoked from within
+"Project::load $projfilename 1"
+    (procedure "Project::create" line 153)
+    invoked from within
+"Project::create $Project(dlg_proj_location) $Project(CurProj_NewName) $Project(dlg_proj_libname) $Project(dlg_initial_ini) $Project(dlg_ini_copy)"
+    (procedure "Project::applyCreate" line 3)
+    invoked from within
+"Project::applyCreate .pcd"
+    invoked from within
+".pcd.bb.button0 invoke"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel #0 [list $w invoke]"
+    (procedure "tk::ButtonUp" line 22)
+    invoked from within
+"tk::ButtonUp .pcd.bb.button0"
+    (command bound to event)
+  <2:/opt/intelFPGA/18.1/modelsim_ase/linuxaloem/tk8.5/bgerror.tcl:92: ::tkerror {** Error: (vish-7) Failed to open mpf file "/home/vm/Desktop/shared/vhdl_testbench_tutorial/modelsim/vhdl_testbench_tutorial.mpf" in write mode.
+Operation not permitted. (errno = EPERM)
+}
+  <1:eval:1: ::tk::dialog::error::bgerror {** Error: (vish-7) Failed to open mpf file "/home/vm/Desktop/shared/vhdl_testbench_tutorial/modelsim/vhdl_testbench_tutorial.mpf" in write mode.
+Operation not permitted. (errno = EPERM)
+}
