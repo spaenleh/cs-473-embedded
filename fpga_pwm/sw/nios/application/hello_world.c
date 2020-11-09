@@ -1,19 +1,3 @@
-/*
- * "Hello World" example.
- *
- * This example prints 'Hello from Nios II' to the STDOUT stream. It runs on
- * the Nios II 'standard', 'full_featured', 'fast', and 'low_cost' example
- * designs. It runs with or without the MicroC/OS-II RTOS and requires a STDOUT
- * device in your system's hardware.
- * The memory footprint of this hosted application is ~69 kbytes by default
- * using the standard reference design.
- *
- * For a reduced footprint version of this template, and an explanation of how
- * to reduce the memory footprint for a given application, see the
- * "small_hello_world" template.
- *
- */
-
 #include <stdio.h>
 #include "system.h"
 #include "io.h"
@@ -27,19 +11,27 @@
 
 int main()
 {
-	//int i,j;
-	printf("Hello from Nios II!\n");
+	int i,j;
+	printf("Program started !\n");
 
-	// set periode in us
+	// set 20 ms for servo-motor
 	IOWR_16DIRECT(PWM_CUSTOM_0_BASE, REG_PERIODE, 20000);
 
-	// set duty cycle as 2 ms
-	IOWR_16DIRECT(PWM_CUSTOM_0_BASE, REG_DUTY, 4000);
+	// set polarity as T_on
+	IOWR_16DIRECT(PWM_CUSTOM_0_BASE, REG_POLARITY, T_ON);
 
-	// set polarity as T_on so that it is on for 2ms and off for 18ms
-	IOWR_16DIRECT(PWM_CUSTOM_0_BASE, REG_POLARITY, T_OFF);
 	while(1){
-
+		for(j=0; j<50000; j++);		// delay
+		for(i=2000; i>1000; i--){
+			IOWR_16DIRECT(PWM_CUSTOM_0_BASE, REG_DUTY, i);
+			for(j=0; j<500; j++);	// delay
+		}
+		for(j=0; j<5000000; j++);	// delay
+		for(i=1000; i<2000; i++){
+			IOWR_16DIRECT(PWM_CUSTOM_0_BASE, REG_DUTY, i);
+			for(j=0; j<2000; j++);	// delay
+		}
 	}
+
 	return 0;
 }

@@ -52,45 +52,12 @@ begin
 				nRST <= '1';
 		end procedure async_n_reset;
 
-		-- procedure check_add(constant in1 : in natural;
-		-- 					constant in2 : in natural;
-		-- 					constant res_expected : in natural) is
-		-- 	variable res : natural;
-		-- begin
-		--
-		-- 	wait until rising_edge(CLK);
-		--
-		-- 	OP1 <= std_logic_vector(to_unsigned(in1, OP1'length));
-		-- 	OP2 <= std_logic_vector(to_unsigned(in2, OP2'length));
-		-- 	START <= '1';
-		--
-		-- 	wait until rising_edge(CLK);
-		--
-		-- 	OP1 <= (others => '0');
-		-- 	OP2 <= (others => '0');
-		-- 	START <= '0';
-		--
-		-- 	wait until DONE = '1';
-		--
-		-- 	-- Check the result
-		-- 	res := to_integer(unsigned(SUM));
-		-- 	assert res = res_expected
-		-- 	report "Unexpected result: " &
-		-- 			"OP1 = " & integer'image(in1) & "; " &
-		-- 			"OP2 = " & integer'image(in2) & "; " &
-		-- 			"SUM = " & integer'image(res) & "; " &
-		-- 			"SUM_expected = " & integer'image(res_expected)
-		-- 	severity error;
-		--
-		-- 	wait until DONE = '0';
-		-- end procedure check_add;
 	begin
 		-- default values
 		nRST <= '1';
 		wait for CLK_PERIOD;
 		async_n_reset;
 
-		-- sim_finished <= true;
 		wait;
 	end process simulation;
 

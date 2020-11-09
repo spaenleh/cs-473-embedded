@@ -21,8 +21,8 @@ architecture rtl of system is
 			address   : in  std_logic_vector(1 downto 0)  := (others => 'X'); -- address
 			write     : in  std_logic                     := 'X';             -- write
 			writedata : in  std_logic_vector(15 downto 0) := (others => 'X'); -- writedata
-			PWM_out   : out std_logic;                                        -- conduit
-			nReset    : in  std_logic                     := 'X'              -- reset_n
+			nReset    : in  std_logic                     := 'X';             -- reset_n
+			PWM_out   : out std_logic                                         -- conduit
 		);
 	end component PWM;
 
@@ -268,8 +268,8 @@ begin
 			address   => mm_interconnect_0_pwm_custom_0_avalon_slave_0_address,   -- avalon_slave_0.address
 			write     => mm_interconnect_0_pwm_custom_0_avalon_slave_0_write,     --               .write
 			writedata => mm_interconnect_0_pwm_custom_0_avalon_slave_0_writedata, --               .writedata
-			PWM_out   => pwm_out_conduit,                                         --    conduit_end.conduit
-			nReset    => rst_controller_reset_out_reset_ports_inv                 --     reset_sink.reset_n
+			nReset    => rst_controller_reset_out_reset_ports_inv,                --     reset_sink.reset_n
+			PWM_out   => pwm_out_conduit                                          --        pwm_out.conduit
 		);
 
 	jtag_uart_0 : component system_jtag_uart_0

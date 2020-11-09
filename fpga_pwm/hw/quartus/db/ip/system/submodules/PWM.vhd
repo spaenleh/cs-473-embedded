@@ -8,41 +8,37 @@ entity PWM is
 		nReset 	: in std_logic;
 
 		-- Internal interface (i.e. Avalon slave).
-		address 	: in std_logic_vector(1 downto 0); -- attention si 32 bits data
-		write 		: in std_logic;
-		--read 		: in std_logic;
-		writedata 	: in std_logic_vector(15 downto 0);
-		--readdata 	: out std_logic_vector(7 downto 0);
+		address 	: in std_logic_vector(1 downto 0);	-- 3 registers so only 2 bits
+		write 		: in std_logic;						-- procesor wants to write
+		writedata 	: in std_logic_vector(15 downto 0);	-- data to write sent from the processor
 
 		-- External interface (i.e. conduit).
-		PWM_out : out std_logic
+		PWM_out : out std_logic							-- to wire to a pinto control the motor
 	);
 end PWM;
 
 
 architecture comp of PWM is
 
-	-- signal iRegDir 	: std_logic_vector(7 downto 0);
-	-- signal iRegPort : std_logic_vector(7 downto 0);
-	-- signal iRegPin 	: std_logic_vector(7 downto 0);
+	-- Register map
+	signal iRegPeriod 	: std_logic_vector(15 downto 0) := (others => '0');	-- Periode
+	signal iRegDuty 	: std_logic_vector(15 downto 0) := (others => '0');	-- Duty cycle
+	signal iRegPolarity : std_logic := '1';									-- T_on
 
-	-- parameters of the
-	signal iRegPolarity : std_logic;
-	signal iRegDuty 	: std_logic_vector(15 downto 0);
-	signal iRegPeriod 	: std_logic_vector(15 downto 0);
-
+	-- counter
 	signal counter_reg, counter_next : unsigned(15 downto 0);
-	signal enable_clk : std_logic;
 
+	-- clk_div component to "slow" the clock
 	component clk_div is
 		port(
 			clk		: in std_logic;
 			nReset	: in std_logic;
-
-			-- enable that "slows the clock down"
 			enable	: out std_logic
 		);
 	end component clk_div;
+
+	-- internal signal for the clk_div module
+	signal enable_clk : std_logic;
 
 begin
 
@@ -53,9 +49,11 @@ begin
 		enable => enable_clk
 	);
 
+	-- OUT logic for the PWM
 	PWM_out <= 	iRegPolarity when counter_reg < unsigned(iRegDuty) else
 				not iRegPolarity;
 
+	-- incerement the counter
 	counter_next <= counter_reg + 1 when counter_reg < unsigned(iRegPeriod) - 1 else
 					(others => '0');
 
@@ -79,6 +77,5 @@ begin
 			end if;
 		end if;
 	end process;
-
 
 end comp;

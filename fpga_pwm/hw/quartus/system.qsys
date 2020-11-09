@@ -89,6 +89,14 @@
          type = "String";
       }
    }
+   element system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
 }
 ]]></parameter>
  <parameter name="clockCrossingAdapter" value="HANDSHAKE" />
@@ -113,7 +121,7 @@
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
  <interface
    name="pwm_out"
-   internal="PWM_custom_0.conduit_end"
+   internal="PWM_custom_0.pwm_out"
    type="conduit"
    dir="end" />
  <interface name="reset" internal="clk_0.clk_in_reset" type="reset" dir="end" />
