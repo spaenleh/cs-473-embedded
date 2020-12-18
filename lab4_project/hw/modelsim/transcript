@@ -1,0 +1,211 @@
+# Loading project display_ip
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# Compile of pixel_send.vhd failed.
+# Compile of tb_pixel_send.vhd failed.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# Compile of pixel_send.vhd failed with 7 errors.
+# Compile of tb_pixel_send.vhd failed with 3 errors.
+# 4 compiles, 2 failed with 10 errors.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# Compile of pixel_send.vhd failed with 5 errors.
+# Compile of tb_pixel_send.vhd failed with 3 errors.
+# 4 compiles, 2 failed with 8 errors.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# Compile of pixel_send.vhd failed with 3 errors.
+# Compile of tb_pixel_send.vhd failed with 3 errors.
+# 4 compiles, 2 failed with 6 errors.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# Compile of pixel_send.vhd was successful.
+# Compile of tb_pixel_send.vhd failed with 3 errors.
+# 4 compiles, 1 failed with 3 errors.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# Compile of pixel_send.vhd was successful.
+# Compile of tb_pixel_send.vhd was successful.
+# 4 compiles, 0 failed with no errors.
+vsim work.tb_pixel_send
+# vsim work.tb_pixel_send 
+# Start time: 23:22:20 on Dec 17,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_pixel_send(test)
+# Loading work.pixel_send(comp)
+add wave -position insertpoint sim:/tb_pixel_send/DUT/*
+restart -f; run -all;
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# Compile of pixel_send.vhd was successful.
+# Compile of tb_pixel_send.vhd was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f; run 10ms;
+# Loading work.tb_pixel_send(test)
+# Loading work.pixel_send(comp)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+restart
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+restart
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# Compile of pixel_send.vhd was successful.
+# Compile of tb_pixel_send.vhd was successful.
+# 4 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_pixel_send(test)
+# Loading work.pixel_send(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_pixel_send.vhd was successful.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# Compile of pixel_send.vhd was successful.
+# Compile of tb_pixel_send.vhd was successful.
+# 4 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_pixel_send(test)
+# Loading work.pixel_send(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# Compile of pixel_send.vhd was successful.
+# Compile of tb_pixel_send.vhd was successful.
+# 4 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_pixel_send(test)
+# Loading work.pixel_send(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# Compile of pixel_send.vhd was successful.
+# Compile of tb_pixel_send.vhd was successful.
+# 4 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_pixel_send(test)
+# Loading work.pixel_send(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# Compile of pixel_send.vhd was successful.
+# Compile of tb_pixel_send.vhd was successful.
+# 4 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_pixel_send(test)
+# Loading work.pixel_send(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# Compile of pixel_send.vhd was successful.
+# Compile of tb_pixel_send.vhd was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f; run -all;
+# Loading work.tb_pixel_send(test)
+# Loading work.pixel_send(comp)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# Compile of pixel_send.vhd was successful.
+# Compile of tb_pixel_send.vhd was successful.
+# 4 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_pixel_send(test)
+# Loading work.pixel_send(comp)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# End time: 12:51:06 on Dec 18,2020, Elapsed time: 13:28:46
+# Errors: 0, Warnings: 11

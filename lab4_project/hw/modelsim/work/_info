@@ -1,0 +1,176 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+d/home/vm/Desktop/shared/fpga_pwm/hw/modelsim
+Edisplay_ip
+Z0 w1608073981
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z4 d/home/vm/Desktop/shared/lab4_project/hw/modelsim
+Z5 8/home/vm/Desktop/shared/lab4_project/hw/vhdl/display_ip.vhd
+Z6 F/home/vm/Desktop/shared/lab4_project/hw/vhdl/display_ip.vhd
+l0
+L5
+V7L1:PGUID5o_CP>YWgB^b1
+!s100 M@e<=Ml02K:<GL;YB30dc3
+Z7 OV;C;10.5b;63
+32
+Z8 !s110 1608245297
+!i10b 1
+Z9 !s108 1608245297.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/vm/Desktop/shared/lab4_project/hw/vhdl/display_ip.vhd|
+Z11 !s107 /home/vm/Desktop/shared/lab4_project/hw/vhdl/display_ip.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Acomp
+R1
+R2
+R3
+Z14 DEx4 work 10 display_ip 0 22 7L1:PGUID5o_CP>YWgB^b1
+l52
+L29
+V87f@bcG1ZPI6QaA`QGbRc0
+!s100 7@2PfVYh]fbcO>=Na=2eb3
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Epixel_send
+Z15 w1608245291
+R1
+R2
+R3
+R4
+Z16 8/home/vm/Desktop/shared/lab4_project/hw/vhdl/pixel_send.vhd
+Z17 F/home/vm/Desktop/shared/lab4_project/hw/vhdl/pixel_send.vhd
+l0
+L5
+V_F8^Ef;4oeff98DP77z783
+!s100 7l<:M70:gl_G=[9b?8_?C2
+R7
+32
+R8
+!i10b 1
+R9
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/vm/Desktop/shared/lab4_project/hw/vhdl/pixel_send.vhd|
+Z19 !s107 /home/vm/Desktop/shared/lab4_project/hw/vhdl/pixel_send.vhd|
+!i113 1
+R12
+R13
+Acomp
+R1
+R2
+R3
+Z20 DEx4 work 10 pixel_send 0 22 _F8^Ef;4oeff98DP77z783
+l52
+L28
+VFB07]=SKMUVakA:<fm>0S0
+!s100 G50H>0c`1iA?F1ATY^2GA1
+R7
+32
+R8
+!i10b 1
+R9
+R18
+R19
+!i113 1
+R12
+R13
+Etb_display_ip
+Z21 w1608073080
+R1
+R2
+R3
+R4
+Z22 8/home/vm/Desktop/shared/lab4_project/hw/testbench/tb_display_ip.vhd
+Z23 F/home/vm/Desktop/shared/lab4_project/hw/testbench/tb_display_ip.vhd
+l0
+L5
+V>NJU2cJ]IlaHQT7A7?gAh0
+!s100 Hi0Vh`Z3jghUJDYQd5o_Z1
+R7
+32
+R8
+!i10b 1
+R9
+Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/vm/Desktop/shared/lab4_project/hw/testbench/tb_display_ip.vhd|
+Z25 !s107 /home/vm/Desktop/shared/lab4_project/hw/testbench/tb_display_ip.vhd|
+!i113 1
+R12
+R13
+Atest
+R14
+R1
+R2
+R3
+DEx4 work 13 tb_display_ip 0 22 >NJU2cJ]IlaHQT7A7?gAh0
+l32
+L8
+VXBH]`i@eSAFP;Ii`BFESI3
+!s100 FBDnASBiHM=SF<To<_X042
+R7
+32
+R8
+!i10b 1
+R9
+R24
+R25
+!i113 1
+R12
+R13
+Etb_pixel_send
+Z26 w1608243712
+R1
+R2
+R3
+R4
+Z27 8/home/vm/Desktop/shared/lab4_project/hw/testbench/tb_pixel_send.vhd
+Z28 F/home/vm/Desktop/shared/lab4_project/hw/testbench/tb_pixel_send.vhd
+l0
+L5
+VYjM2@H2APQT2X<@:eCQnz0
+!s100 ;Q8L:gL>M<JBaV;VKVGZX2
+R7
+32
+R8
+!i10b 1
+R9
+Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/vm/Desktop/shared/lab4_project/hw/testbench/tb_pixel_send.vhd|
+Z30 !s107 /home/vm/Desktop/shared/lab4_project/hw/testbench/tb_pixel_send.vhd|
+!i113 1
+R12
+R13
+Atest
+R20
+R1
+R2
+R3
+Z31 DEx4 work 13 tb_pixel_send 0 22 YjM2@H2APQT2X<@:eCQnz0
+l27
+L8
+Z32 Vk`:d?@o_[;D]VOjdJTS]j1
+Z33 !s100 1cM[?;8zF?Zk2To>V261T0
+R7
+32
+R8
+!i10b 1
+R9
+R29
+R30
+!i113 1
+R12
+R13

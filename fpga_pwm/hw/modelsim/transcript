@@ -1,53 +1,173 @@
 # Loading project fpga_pwm
-vsim work.tb_clk_div
-# vsim work.tb_clk_div 
-# Start time: 20:16:30 on Nov 08,2020
+# reading /opt/intelFPGA/18.1/modelsim_ase/linuxaloem/../modelsim.ini
+# Loading project display_ip
+# Compile of tb_display_ip.vhd failed.
+# Compile of display_ip.vhd failed.
+# Compile of tb_display_ip.vhd failed with 1 errors.
+# Compile of display_ip.vhd failed with 5 errors.
+# 2 compiles, 2 failed with 6 errors.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd failed with 5 errors.
+# 2 compiles, 1 failed with 5 errors.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd failed with 4 errors.
+# 2 compiles, 1 failed with 4 errors.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd failed with 9 errors.
+# 2 compiles, 1 failed with 9 errors.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd failed with 8 errors.
+# 2 compiles, 1 failed with 8 errors.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd failed with 4 errors.
+# 2 compiles, 1 failed with 4 errors.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful with warnings.
+# 2 compiles, 0 failed with no errors.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful with warnings.
+# 2 compiles, 0 failed with no errors.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_display_ip
+# vsim work.tb_display_ip 
+# Start time: 21:24:48 on Dec 15,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
-# Loading work.tb_clk_div(test)
-# Loading work.clk_div(comp)
-add wave -position insertpoint sim:/tb_clk_div/*
+# Loading work.tb_display_ip(test)
+# Loading work.display_ip(comp)
+restart -f; run -all;
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+add wave -position insertpoint sim:/tb_display_ip/DUT/*
+run
+restart
 run
 # ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
 run
-add wave -position insertpoint  \
-sim:/tb_clk_div/DUT/counter_reg \
-sim:/tb_clk_div/DUT/counter_next
-restart -f; run 3000 ns;
+run
+run
+run
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f; run -all;
+# Loading work.tb_display_ip(test)
+# Loading work.display_ip(comp)
 # ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
-vsim work.tb_pwm
-# End time: 20:25:08 on Nov 08,2020, Elapsed time: 0:08:38
-# Errors: 0, Warnings: 2
-# vsim work.tb_pwm 
-# Start time: 20:25:08 on Nov 08,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading work.tb_pwm(test)
-# Loading work.pwm(comp)
-# Loading work.clk_div(comp)
-add wave -position insertpoint sim:/tb_pwm/DUT/*
-add wave -position insertpoint  \
-sim:/tb_pwm/DUT/iRegPolarity \
-sim:/tb_pwm/DUT/iRegDuty \
-sim:/tb_pwm/DUT/iRegPeriod \
-sim:/tb_pwm/DUT/counter_reg \
-sim:/tb_pwm/DUT/counter_next
-run
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f; run -all;
+# Loading work.tb_display_ip(test)
+# Loading work.display_ip(comp)
 # ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
-# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /tb_pwm/DUT
-# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /tb_pwm/DUT
-# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
-#    Time: 20 ns  Iteration: 2  Instance: /tb_pwm/DUT
-# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
-#    Time: 20 ns  Iteration: 2  Instance: /tb_pwm/DUT
-run
-run
-run
-# End time: 23:25:09 on Nov 08,2020, Elapsed time: 3:00:01
-# Errors: 0, Warnings: 5
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f; run -all;
+# Loading work.tb_display_ip(test)
+# Loading work.display_ip(comp)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f; run 1000ns;
+# Loading work.tb_display_ip(test)
+# Loading work.display_ip(comp)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f; run 100ns;
+# Loading work.tb_display_ip(test)
+# Loading work.display_ip(comp)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+restart -f; run 500ns;
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd failed with 2 errors.
+# 2 compiles, 1 failed with 2 errors.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f; run 100ns;
+# Loading work.tb_display_ip(test)
+# Loading work.display_ip(comp)
+# Warning in wave window restart: (vish-4014) No objects found matching '/tb_display_ip/DUT/D_Cx'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/tb_display_ip/DUT/next_D_Cx'. 
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+add wave -position insertpoint sim:/tb_display_ip/DUT/*
+restart -f; run 100ns;
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+restart
+restart -f; run 500ns;
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f; run 500ns;
+# Loading work.tb_display_ip(test)
+# Loading work.display_ip(comp)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f; run 500ns;
+# Loading work.tb_display_ip(test)
+# Loading work.display_ip(comp)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f; run 500ns;
+# Loading work.tb_display_ip(test)
+# Loading work.display_ip(comp)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f; run -all;
+# Loading work.tb_display_ip(test)
+# Loading work.display_ip(comp)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd failed with 3 errors.
+# 2 compiles, 1 failed with 3 errors.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f; run -all;
+# Loading work.tb_display_ip(test)
+# Loading work.display_ip(comp)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f; run -all;
+# Loading work.tb_display_ip(test)
+# Loading work.display_ip(comp)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f; run -all;
+# Loading work.tb_display_ip(test)
+# Loading work.display_ip(comp)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f; run -all;
+# Loading work.tb_display_ip(test)
+# Loading work.display_ip(comp)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of tb_display_ip.vhd was successful.
+# Compile of display_ip.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f; run -all;
+# Loading work.tb_display_ip(test)
+# Loading work.display_ip(comp)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.

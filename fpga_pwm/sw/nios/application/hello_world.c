@@ -19,18 +19,20 @@ int main()
 
 	// set polarity as T_on
 	IOWR_16DIRECT(PWM_CUSTOM_0_BASE, REG_POLARITY, T_ON);
+	IOWR_16DIRECT(PWM_CUSTOM_0_BASE, REG_DUTY, 2000);
 
 	while(1){
-		for(j=0; j<50000; j++);		// delay
-		for(i=2000; i>1000; i--){
-			IOWR_16DIRECT(PWM_CUSTOM_0_BASE, REG_DUTY, i);
-			for(j=0; j<500; j++);	// delay
-		}
-		for(j=0; j<5000000; j++);	// delay
-		for(i=1000; i<2000; i++){
-			IOWR_16DIRECT(PWM_CUSTOM_0_BASE, REG_DUTY, i);
-			for(j=0; j<2000; j++);	// delay
-		}
+
+//		for(j=0; j<50000; j++);		// delay
+//		for(i=2000; i>1000; i--){
+//			IOWR_16DIRECT(PWM_CUSTOM_0_BASE, REG_DUTY, i);
+//			for(j=0; j<500; j++);	// delay
+//		}
+//		for(j=0; j<5000000; j++);	// delay
+//		for(i=1000; i<2000; i++){
+//			IOWR_16DIRECT(PWM_CUSTOM_0_BASE, REG_DUTY, i);
+//			for(j=0; j<2000; j++);	// delay
+//		}
 	}
 
 	return 0;
