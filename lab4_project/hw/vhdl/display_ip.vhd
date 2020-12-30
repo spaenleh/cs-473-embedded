@@ -53,10 +53,10 @@ architecture comp of display_ip is
 	signal WR_N_lcd, next_WR_N_lcd	: std_logic := '1';		-- write signal
 
 	-- State register
-    type state_type is (STATE_IDLE_CFG, STATE_OUT, STATE_OUT_WAIT, STATE_VALID, STATE_REG, STATE_IDLE_SEND);
+    type state_type is (STATE_IDLE_CFG, STATE_OUT, STATE_OUT_1, STATE_OUT_2, STATE_OUT_3, STATE_OUT_WAIT, STATE_VALID, STATE_VALID_1, STATE_VALID_2, STATE_VALID_3, STATE_REG, STATE_REG_WAIT, STATE_IDLE_SEND);
     signal reg_state, next_reg_state : state_type;
 
-	signal enable_send : std_logic := '0';
+	signal enable_send, next_enable_send : std_logic := '0';
 	signal busy_pixel : std_logic;
 	signal fifo_read : std_logic;
 	signal fifo_data	: std_logic_vector(15 downto 0) := (others => '1');
@@ -165,6 +165,7 @@ begin
 			iReg_Frame_Wait <= (others => '0');
 			oReg_Frame_State <= (others => '0');
 			reg_state <= STATE_IDLE_CFG;
+			enable_send <= '0';
 		elsif rising_edge(clk) then
 			iReg <= next_iReg;
 			D_Cx_lcd <= next_D_Cx_lcd;
@@ -172,19 +173,21 @@ begin
 			iReg_Frame_Wait <= next_iReg_Frame_Wait;
 			oReg_Frame_State <= next_oReg_Frame_State;
 			reg_state <= next_reg_state;
+			enable_send <= next_enable_send;
 		end if;
 	end process;
 
 	-- LT24_D <= LCD_pins
 	LT24_CS_N 		<= '0'; -- always selected
     LT24_D 			<= iReg when enable_send = '0' else Data_pixel;
+    -- LT24_D 			<= iReg when enable_send = '0' else "0000011111100000";
     LT24_LCD_ON 	<= '1'; -- maybe change to a switch
     LT24_RD_N		<= '1'; -- never read from screen
     LT24_RESET_N 	<= not iReg_Frame_Wait(6); -- Reset active low of the LCD
     LT24_RS_D_Cx	<= D_Cx_lcd when enable_send = '0' else D_Cx_pixel;
     LT24_WR_N       <= WR_N_lcd when enable_send = '0' else WR_N_pixel;
 
-	process(reg_state, write_S, address_S, writedata_S)
+	process(reg_state, write_S, address_S, writedata_S, iReg, D_Cx_lcd, WR_N_lcd, iReg_Frame_Wait, oReg_Frame_State, enable_send, busy_pixel)
 	begin
 		next_reg_state <= reg_state;
 		next_iReg <= iReg;
@@ -192,6 +195,7 @@ begin
 		next_WR_N_lcd <= WR_N_lcd;
 		next_iReg_Frame_Wait <= iReg_Frame_Wait;
 		next_oReg_Frame_State <= oReg_Frame_State;
+		next_enable_send <= enable_send;
 		case( reg_state ) is
 			when STATE_IDLE_CFG =>
 				next_WR_N_lcd <= '1';
@@ -208,8 +212,8 @@ begin
 							next_WR_N_lcd <= '0';
 							next_reg_state <= STATE_OUT;
 						when "10" =>
-							next_iReg_Frame_Wait <= (others => '1');
-							-- next_iReg_Frame_Wait <= writedata_S(7 downto 0);
+							-- next_iReg_Frame_Wait <= (others => '1');
+							next_iReg_Frame_Wait <= writedata_S(7 downto 0);
 							next_reg_state <= STATE_REG;
 						when others =>
 							next_reg_state <= STATE_IDLE_CFG;
@@ -217,11 +221,35 @@ begin
 				end if;
 
 			when STATE_OUT =>
+				-- next_reg_state <= STATE_OUT_WAIT;
+				next_reg_state <= STATE_OUT_1;
+
+-- modified 24 dec
+			when STATE_OUT_1 =>
+				next_reg_state <= STATE_OUT_2;
+
+			when STATE_OUT_2 =>
+				next_reg_state <= STATE_OUT_3;
+
+			when STATE_OUT_3 =>
 				next_reg_state <= STATE_OUT_WAIT;
+-- end modified 24 dec
 
 			when STATE_OUT_WAIT =>
 				next_WR_N_lcd <= '1';
+				-- next_reg_state <= STATE_VALID;
+				next_reg_state <= STATE_VALID_1;
+
+-- modified 24 dec
+			when STATE_VALID_1 =>
+				next_reg_state <= STATE_VALID_2;
+
+			when STATE_VALID_2 =>
+				next_reg_state <= STATE_VALID_3; -- attention
+
+			when STATE_VALID_3 =>
 				next_reg_state <= STATE_VALID;
+-- modified 24 dec
 
 			when STATE_VALID =>
 				-- write_lcd <= '1';
@@ -230,13 +258,17 @@ begin
 			when STATE_REG =>
 				if iReg_Frame_Wait(7) = '0' then
 					next_reg_state <= STATE_IDLE_CFG;
-					enable_send <= '0';
+					next_enable_send <= '0';
 				else
 					next_reg_state <= STATE_IDLE_SEND;
+					next_enable_send <= '1';
 				end if;
 
+			-- when STATE_REG_WAIT =>
+			-- 	next_reg_state <= STATE_IDLE_SEND;
+
 			when STATE_IDLE_SEND =>
-				enable_send <= '1';
+				-- next_enable_send <= '1';
 				-- here the module to send the pixels has the focus
 				next_oReg_Frame_State(0) <= busy_pixel;
 				if write_S = '1' then
@@ -245,7 +277,8 @@ begin
 						next_reg_state <= STATE_REG;
 					end if;
 				-- elsif busy_pixel = '0' then
-				-- 	next_reg_state <= CON
+				-- 	next_enable_send <= '0';
+				-- 	next_reg_state <= STATE_IDLE_CFG;
 				end if;
 			when others =>
 				next_reg_state <= STATE_IDLE_CFG;

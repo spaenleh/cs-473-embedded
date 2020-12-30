@@ -23,9 +23,9 @@
 #define REG_S_INSTR	4
 #define REG_S_POLL	6
 #define ADRR		DISPLAY_IP_0_BASE
-#define DELAY		10
+#define DELAY		20
 
-#define NPIX		240*320/4
+#define NPIX		240*320*4
 
 
 // prototypes
@@ -33,33 +33,140 @@ void delay_ms(int duration);
 void delay_clk(int number);
 void send_reset();
 void LCD_init();
-void fill_frame(int offset);
-
+void fill_frame(int offset, int color);
+void clear_frame(int offset);
+void fill_square(int col, int line, int color);
 
 int main()
 {
 	printf("Hello from Nios II!\n");
 
 	// write in the SDRAM with the alterafs library
-	fill_frame(0);
-	fill_frame(4*NPIX*4);
+	clear_frame(0);
+	clear_frame(NPIX);
+	//	clear_frame(2*NPIX);
+	//	clear_frame(3*NPIX);
+	//	clear_frame(4*NPIX);
+	//	clear_frame(5*NPIX);
+	//	clear_frame(6*NPIX);
+	//	clear_frame(7*NPIX);
+	//	clear_frame(8*NPIX);
+	//	clear_frame(9*NPIX);
+
+	fill_frame(0, 0x07E007E0);
+	fill_frame(NPIX, 0x07E007E0);
+
+	fill_square(1, 1, 0xF800F800);
+	fill_square(2, 1, 0xF800F800);
+	fill_square(5, 1, 0xF800F800);
+	fill_square(6, 1, 0xF800F800);
+	fill_square(1, 2, 0xF800F800);
+	fill_square(2, 2, 0xF800F800);
+	fill_square(6, 2, 0xF800F800);
+	fill_square(2, 4, 0xF800F800);
+	fill_square(5, 4, 0xF800F800);
+	fill_square(2, 5, 0xF800F800);
+	fill_square(3, 5, 0xF800F800);
+	fill_square(4, 5, 0xF800F800);
+	fill_square(5, 5, 0xF800F800);
+
+	fill_square(9, 1, 0x001F001F);
+	fill_square(10, 1, 0x001F001F);
+	fill_square(11, 1, 0x001F001F);
+	fill_square(13, 1, 0x001F001F);
+	fill_square(14, 1, 0x001F001F);
+	fill_square(15, 1, 0x001F001F);
+	fill_square(9, 2, 0x001F001F);
+	fill_square(13, 2, 0x001F001F);
+	fill_square(15, 2, 0x001F001F);
+	fill_square(9, 3, 0x001F001F);
+	fill_square(10, 3, 0x001F001F);
+	fill_square(11, 3, 0x001F001F);
+	fill_square(13, 3, 0x001F001F);
+	fill_square(14, 3, 0x001F001F);
+	fill_square(15, 3, 0x001F001F);
+	fill_square(11, 4, 0x001F001F);
+	fill_square(13, 4, 0x001F001F);
+	fill_square(15, 4, 0x001F001F);
+	fill_square(9, 5, 0x001F001F);
+	fill_square(10, 5, 0x001F001F);
+	fill_square(11, 5, 0x001F001F);
+	fill_square(13, 5, 0x001F001F);
+	fill_square(15, 5, 0x001F001F);
+
+	fill_square(2, 7, 0x001F001F);
+	fill_square(6, 7, 0x001F001F);
+	fill_square(8, 7, 0x001F001F);
+	fill_square(10, 7, 0x001F001F);
+	fill_square(11, 7, 0x001F001F);
+	fill_square(12, 7, 0x001F001F);
+	fill_square(14, 7, 0x001F001F);
+	fill_square(2, 8, 0x001F001F);
+	fill_square(6, 8, 0x001F001F);
+	fill_square(8, 8, 0x001F001F);
+	fill_square(11, 8, 0x001F001F);
+	fill_square(14, 8, 0x001F001F);
+	fill_square(2, 9, 0x001F001F);
+	fill_square(6, 9, 0x001F001F);
+	fill_square(8, 9, 0x001F001F);
+	fill_square(11, 9, 0x001F001F);
+	fill_square(14, 9, 0x001F001F);
+	fill_square(2, 10, 0x001F001F);
+	fill_square(6, 10, 0x001F001F);
+	fill_square(8, 10, 0x001F001F);
+	fill_square(11, 10, 0x001F001F);
+	fill_square(2, 11, 0x001F001F);
+	fill_square(3, 11, 0x001F001F);
+	fill_square(4, 11, 0x001F001F);
+	fill_square(6, 11, 0x001F001F);
+	fill_square(7, 11, 0x001F001F);
+	fill_square(8, 11, 0x001F001F);
+	fill_square(11, 11, 0x001F001F);
+	fill_square(14, 11, 0x001F001F);
+
+
+	//	fill_frame(NPIX, 0xF800F800);
+
+	//	fill_frame(2*NPIX, 0x1F000);
+	//	fill_frame(3*NPIX, 0x1F000);
+	//	fill_frame(4*NPIX, 0x1F000);
+	//	fill_frame(16*NPIX, 0xFFFF);
 
 	LCD_init();
+
 	// Display bit is at 1 and reset bit is at 0
-	//IOWR_16DIRECT(ADRR, REG_S_INSTR, 0b10000000);
+	IOWR_16DIRECT(ADRR, REG_S_INSTR, 0b10000000);
+	//	int a;
 	while(1){
-		//IOWR_16DIRECT(ADRR, REG_S_INSTR, 0b10000000);
 		delay_ms(100);
 	}
 	return 0;
 }
 
-void fill_frame(int offset){
+void fill_frame(int offset, int color){
 	printf("writing frame with offset %d\n", offset);
 	for(int i=0; i< NPIX;i++) {
-		IOWR_32DIRECT(HPS_0_BRIDGES_BASE + offset + i*4, 0, 0xFF00FF00);
+		IOWR_32DIRECT(HPS_0_BRIDGES_BASE + offset + i*4, 0, color);
 	}
 	printf("Finished filling memory\n");
+}
+
+void fill_square(int col, int line, int color){
+	int i, j;
+	for(i=20*col; i<20*(col+1); i++){
+		for(j=20*line; j<20*(line+1); j++){
+			IOWR_32DIRECT(HPS_0_BRIDGES_BASE + 0 + (i+320*j)*4, 0, color);
+			IOWR_32DIRECT(HPS_0_BRIDGES_BASE + NPIX + (i+320*j)*4, 0, color);
+		}
+	}
+}
+
+void clear_frame(int offset){
+	printf("writing frame with offset %d\n", offset);
+	for(int i=0; i< NPIX;i++) {
+		IOWR_32DIRECT(HPS_0_BRIDGES_BASE + offset + i*4, 0, 0x00);
+	}
+	printf("Finished clearing memory\n");
 }
 
 void LCD_init(){
@@ -162,7 +269,9 @@ void LCD_init(){
 	// Memory access control
 	IOWR_16DIRECT(ADRR, REG_CMD, 0x36);
 	delay_clk(DELAY);
-	IOWR_16DIRECT(ADRR, REG_DATA, 0x08); // BGR order
+	// bit MV rotates the screen 90*
+	IOWR_16DIRECT(ADRR, REG_DATA, 0b01101000); // BGR order
+	//	IOWR_16DIRECT(ADRR, REG_DATA, 0x08); // BGR order
 	delay_clk(DELAY);
 	// Enable 3G
 	IOWR_16DIRECT(ADRR, REG_CMD, 0xF2);
@@ -171,21 +280,100 @@ void LCD_init(){
 	delay_clk(DELAY);
 
 	// here comes the gamma correction positive
-	// here comes the gamma correction negative
+	IOWR_16DIRECT(ADRR, REG_CMD, 0xE0);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x0F);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x26);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x24);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x0B);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x0E);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x08);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x4B);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0xA8);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x3B);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x0A);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x14);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x06);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x10);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x09);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	delay_clk(DELAY);
 
+	// here comes the gamma correction negative
+	IOWR_16DIRECT(ADRR, REG_CMD, 0xE1);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x1C);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x20);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x04);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x10);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x08);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x34);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x47);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x44);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x05);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x0B);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x09);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x2F);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x36);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x0F);
+	delay_clk(DELAY);
+
+	//	vertical
+	//	// Column address set
+	//	IOWR_16DIRECT(ADRR, REG_CMD, 0x2A);
+	//	delay_clk(DELAY);
+	//	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	//	delay_clk(DELAY);
+	//	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	//	delay_clk(DELAY);
+	//	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	//	delay_clk(DELAY);
+	//	IOWR_16DIRECT(ADRR, REG_DATA, 0xEF);
+	//	delay_clk(DELAY);
+	//	// Page address set
+	//	IOWR_16DIRECT(ADRR, REG_CMD, 0x2B);
+	//	delay_clk(DELAY);
+	//	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	//	delay_clk(DELAY);
+	//	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	//	delay_clk(DELAY);
+	//	IOWR_16DIRECT(ADRR, REG_DATA, 0x01);
+	//	delay_clk(DELAY);
+	//	IOWR_16DIRECT(ADRR, REG_DATA, 0x3F);
+	//	delay_clk(DELAY);
+
+	//	horizontal
 	// Column address set
 	IOWR_16DIRECT(ADRR, REG_CMD, 0x2A);
-	delay_clk(DELAY);
-	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
-	delay_clk(DELAY);
-	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
-	delay_clk(DELAY);
-	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
-	delay_clk(DELAY);
-	IOWR_16DIRECT(ADRR, REG_DATA, 0xEF);
-	delay_clk(DELAY);
-	// Page address set
-	IOWR_16DIRECT(ADRR, REG_CMD, 0x2B);
 	delay_clk(DELAY);
 	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
 	delay_clk(DELAY);
@@ -194,6 +382,18 @@ void LCD_init(){
 	IOWR_16DIRECT(ADRR, REG_DATA, 0x01);
 	delay_clk(DELAY);
 	IOWR_16DIRECT(ADRR, REG_DATA, 0x3F);
+	delay_clk(DELAY);
+
+	// Page address set
+	IOWR_16DIRECT(ADRR, REG_CMD, 0x2B);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0xEF);
 	delay_clk(DELAY);
 	// COLMOD : pixel format set
 	IOWR_16DIRECT(ADRR, REG_CMD, 0x3A);
@@ -220,15 +420,17 @@ void send_reset(){
 	IOWR_16DIRECT(ADRR, REG_S_INSTR, 0b00000000);
 	delay_ms(1);
 	IOWR_16DIRECT(ADRR, REG_S_INSTR, 0b01000000);
-	delay_ms(100);
+	delay_ms(10);
 	IOWR_16DIRECT(ADRR, REG_S_INSTR, 0b00000000);
-	delay_ms(1200);
+	delay_ms(120);
 }
 
 // wait for duration ms
 void delay_ms(int duration){
-	int i;
-	for(i=0; i<500*duration; i++);
+	int i, j;
+	for(j=0; j<200; j++){
+		for(i=0; i<50*duration; i++);
+	}
 }
 
 // wait for duration ms

@@ -1,12 +1,19 @@
 
 State Machine - |DE0_Nano_SoC_TRDB_D5M_LT24_top_level|soc_system:u0|display_ip:display_ip_0|reg_state
-Name reg_state.STATE_IDLE_SEND reg_state.STATE_REG reg_state.STATE_VALID reg_state.STATE_OUT_WAIT reg_state.STATE_OUT reg_state.STATE_IDLE_CFG 
-reg_state.STATE_IDLE_CFG 0 0 0 0 0 0 
-reg_state.STATE_OUT 0 0 0 0 1 1 
-reg_state.STATE_OUT_WAIT 0 0 0 1 0 1 
-reg_state.STATE_VALID 0 0 1 0 0 1 
-reg_state.STATE_REG 0 1 0 0 0 1 
-reg_state.STATE_IDLE_SEND 1 0 0 0 0 1 
+Name reg_state.STATE_IDLE_SEND reg_state.STATE_REG_WAIT reg_state.STATE_REG reg_state.STATE_VALID_3 reg_state.STATE_VALID_2 reg_state.STATE_VALID_1 reg_state.STATE_VALID reg_state.STATE_OUT_WAIT reg_state.STATE_OUT_3 reg_state.STATE_OUT_2 reg_state.STATE_OUT_1 reg_state.STATE_OUT reg_state.STATE_IDLE_CFG 
+reg_state.STATE_IDLE_CFG 0 0 0 0 0 0 0 0 0 0 0 0 0 
+reg_state.STATE_OUT 0 0 0 0 0 0 0 0 0 0 0 1 1 
+reg_state.STATE_OUT_1 0 0 0 0 0 0 0 0 0 0 1 0 1 
+reg_state.STATE_OUT_2 0 0 0 0 0 0 0 0 0 1 0 0 1 
+reg_state.STATE_OUT_3 0 0 0 0 0 0 0 0 1 0 0 0 1 
+reg_state.STATE_OUT_WAIT 0 0 0 0 0 0 0 1 0 0 0 0 1 
+reg_state.STATE_VALID 0 0 0 0 0 0 1 0 0 0 0 0 1 
+reg_state.STATE_VALID_1 0 0 0 0 0 1 0 0 0 0 0 0 1 
+reg_state.STATE_VALID_2 0 0 0 0 1 0 0 0 0 0 0 0 1 
+reg_state.STATE_VALID_3 0 0 0 1 0 0 0 0 0 0 0 0 1 
+reg_state.STATE_REG 0 0 1 0 0 0 0 0 0 0 0 0 1 
+reg_state.STATE_REG_WAIT 0 1 0 0 0 0 0 0 0 0 0 0 1 
+reg_state.STATE_IDLE_SEND 1 0 0 0 0 0 0 0 0 0 0 0 1 
 
 State Machine - |DE0_Nano_SoC_TRDB_D5M_LT24_top_level|soc_system:u0|display_ip:display_ip_0|AvalonMaster:avalonMaster_inst|currState
 Name currState.CAPTUREDATA currState.WAITFORBURST currState.BURSTSTART currState.IDLE 
@@ -16,13 +23,19 @@ currState.WAITFORBURST 0 1 0 1
 currState.CAPTUREDATA 1 0 0 1 
 
 State Machine - |DE0_Nano_SoC_TRDB_D5M_LT24_top_level|soc_system:u0|display_ip:display_ip_0|pixel_send:pixel_send_inst|reg_state
-Name reg_state.STATE_HAVE_PIX reg_state.STATE_GET_PIX reg_state.STATE_VALID reg_state.STATE_OUT_WAIT reg_state.STATE_OUT reg_state.STATE_IDLE 
-reg_state.STATE_IDLE 0 0 0 0 0 0 
-reg_state.STATE_OUT 0 0 0 0 1 1 
-reg_state.STATE_OUT_WAIT 0 0 0 1 0 1 
-reg_state.STATE_VALID 0 0 1 0 0 1 
-reg_state.STATE_GET_PIX 0 1 0 0 0 1 
-reg_state.STATE_HAVE_PIX 1 0 0 0 0 1 
+Name reg_state.STATE_HAVE_PIX reg_state.STATE_GET_PIX reg_state.STATE_VALID_3 reg_state.STATE_VALID_2 reg_state.STATE_VALID_1 reg_state.STATE_VALID reg_state.STATE_OUT_WAIT reg_state.STATE_OUT_3 reg_state.STATE_OUT_2 reg_state.STATE_OUT_1 reg_state.STATE_OUT reg_state.STATE_IDLE 
+reg_state.STATE_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 
+reg_state.STATE_OUT 0 0 0 0 0 0 0 0 0 0 1 1 
+reg_state.STATE_OUT_1 0 0 0 0 0 0 0 0 0 1 0 1 
+reg_state.STATE_OUT_2 0 0 0 0 0 0 0 0 1 0 0 1 
+reg_state.STATE_OUT_3 0 0 0 0 0 0 0 1 0 0 0 1 
+reg_state.STATE_OUT_WAIT 0 0 0 0 0 0 1 0 0 0 0 1 
+reg_state.STATE_VALID 0 0 0 0 0 1 0 0 0 0 0 1 
+reg_state.STATE_VALID_1 0 0 0 0 1 0 0 0 0 0 0 1 
+reg_state.STATE_VALID_2 0 0 0 1 0 0 0 0 0 0 0 1 
+reg_state.STATE_VALID_3 0 0 1 0 0 0 0 0 0 0 0 1 
+reg_state.STATE_GET_PIX 0 1 0 0 0 0 0 0 0 0 0 1 
+reg_state.STATE_HAVE_PIX 1 0 0 0 0 0 0 0 0 0 0 1 
 
 State Machine - |DE0_Nano_SoC_TRDB_D5M_LT24_top_level|soc_system:u0|soc_system_nios2_gen2_0:nios2_gen2_0|soc_system_nios2_gen2_0_cpu:cpu|soc_system_nios2_gen2_0_cpu_nios2_oci:the_soc_system_nios2_gen2_0_cpu_nios2_oci|soc_system_nios2_gen2_0_cpu_debug_slave_wrapper:the_soc_system_nios2_gen2_0_cpu_debug_slave_wrapper|soc_system_nios2_gen2_0_cpu_debug_slave_tck:the_soc_system_nios2_gen2_0_cpu_debug_slave_tck|DRsize
 Name DRsize.101 DRsize.100 DRsize.011 DRsize.010 DRsize.001 DRsize.000 

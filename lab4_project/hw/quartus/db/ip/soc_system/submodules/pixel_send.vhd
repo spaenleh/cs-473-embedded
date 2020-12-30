@@ -37,7 +37,7 @@ architecture comp of pixel_send is
 	constant MEM_WRITE : std_logic_vector(15 downto 0) := "0000000000101100"; -- Memory write command
 
 	-- State register
-    type state_type is (STATE_IDLE, STATE_OUT, STATE_OUT_WAIT, STATE_VALID, STATE_GET_PIX, STATE_HAVE_PIX);
+    type state_type is (STATE_IDLE, STATE_OUT, STATE_OUT_1, STATE_OUT_2, STATE_OUT_3, STATE_OUT_WAIT, STATE_VALID, STATE_VALID_1, STATE_VALID_2, STATE_VALID_3, STATE_GET_PIX, STATE_HAVE_PIX);
     signal reg_state, next_reg_state : state_type;
 
 	signal busy_pixel, next_busy_pixel : std_logic := '0';
@@ -118,11 +118,35 @@ begin
 				next_reg_state <= STATE_OUT;
 
 			when STATE_OUT =>
+				-- next_reg_state <= STATE_OUT_WAIT;
+				next_reg_state <= STATE_OUT_1;
+
+-- modified 24 dec
+			when STATE_OUT_1 =>
+				next_reg_state <= STATE_OUT_2;
+
+			when STATE_OUT_2 =>
+				next_reg_state <= STATE_OUT_3;
+
+			when STATE_OUT_3 =>
 				next_reg_state <= STATE_OUT_WAIT;
+-- end modified 24 dec
 
 			when STATE_OUT_WAIT =>
 				next_WR_N_pixel <= '1';
+				-- next_reg_state <= STATE_VALID;
+				next_reg_state <= STATE_VALID_1;
+
+-- modified 24 dec
+			when STATE_VALID_1 =>
+				next_reg_state <= STATE_VALID_2;
+
+			when STATE_VALID_2 =>
+				next_reg_state <= STATE_VALID_3;
+
+			when STATE_VALID_3 =>
 				next_reg_state <= STATE_VALID;
+-- modified 24 dec
 
 			when STATE_VALID =>
 				if enable = '0' then
