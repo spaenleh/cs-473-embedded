@@ -1,12 +1,161 @@
-!SESSION 2020-12-29 19:16:44.575 -----------------------------------------------
+!SESSION 2021-01-02 10:32:35.507 -----------------------------------------------
 eclipse.buildId=4.5.2.M20160212-1500
 java.version=1.8.0_05
 java.vendor=Oracle Corporation
 BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
 Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization /opt/intelFPGA/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
-Command-line arguments:  -data /home/vm/Desktop/shared/lab4_project/sw/nios -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization /opt/intelFPGA/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization /opt/intelFPGA/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
 
-!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2020-12-29 19:17:01.441
+!ENTRY org.eclipse.ui 4 4 2021-01-02 10:32:50.012
+!MESSAGE Unable to create part
+!SUBENTRY 1 org.eclipse.core.filebuffers 4 0 2021-01-02 10:32:50.012
+!MESSAGE Cannot determine URI for '/application/demo_i2c.c'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Cannot determine URI for '/application/demo_i2c.c'.
+	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.create(ResourceFileBuffer.java:238)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:112)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.createFileInfo(TextFileDocumentProvider.java:559)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.createFileInfo(CDocumentProvider.java:794)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.connect(TextFileDocumentProvider.java:478)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.connect(CDocumentProvider.java:726)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:4233)
+	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:237)
+	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1480)
+	at org.eclipse.ui.editors.text.TextEditor.doSetInput(TextEditor.java:169)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.internalDoSetInput(CEditor.java:1429)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:1394)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$19.run(AbstractTextEditor.java:3220)
+	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2123)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3238)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3265)
+	at org.eclipse.ui.internal.EditorReference.initialize(EditorReference.java:361)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:319)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:898)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:879)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:121)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:345)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:264)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:162)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:104)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:73)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:55)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:129)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:971)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:640)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:746)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:717)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:711)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:695)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.showTab(StackRenderer.java:1306)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.postProcess(LazyStackRenderer.java:103)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:658)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:746)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:717)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:711)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:695)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:71)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:654)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$1.run(PartRenderingEngine.java:525)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:509)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ElementReferenceRenderer.createWidget(ElementReferenceRenderer.java:69)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:971)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:640)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:746)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:717)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:711)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:695)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:71)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:151)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:654)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:746)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:717)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:711)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:695)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:71)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:151)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:654)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:746)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:717)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:711)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:695)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:71)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:151)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:654)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:746)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:717)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:711)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:695)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:71)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveRenderer.processContents(PerspectiveRenderer.java:49)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:654)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:746)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:717)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:711)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:695)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.showTab(PerspectiveStackRenderer.java:82)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.postProcess(LazyStackRenderer.java:103)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.postProcess(PerspectiveStackRenderer.java:63)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:658)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:746)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:717)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:711)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:695)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:71)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:151)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:654)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:746)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:717)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:711)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:695)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:71)
+	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer.processContents(WBWRenderer.java:614)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:654)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:746)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:717)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:711)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:695)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1061)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:694)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:606)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1488)
+!SUBENTRY 2 org.eclipse.core.filebuffers 4 0 2021-01-02 10:32:50.014
+!MESSAGE Cannot determine URI for '/application/demo_i2c.c'.
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2021-01-02 10:32:58.476
 !MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
 !STACK 0
 com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
@@ -25,1322 +174,166 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING
 	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
 	... 9 more
 
-!ENTRY org.eclipse.cdt.core 1 0 2020-12-29 19:20:00.230
-!MESSAGE Indexed 'application' (6 sources, 43 headers) in 8.03 sec: 2,006 declarations; 3,925 references; 6 unresolved inclusions; 0 syntax errors; 69 unresolved names (1.2%)
+!ENTRY org.eclipse.ui 4 4 2021-01-02 10:33:07.986
+!MESSAGE Unable to create part
+!SUBENTRY 1 org.eclipse.core.filebuffers 4 0 2021-01-02 10:33:07.986
+!MESSAGE Cannot determine URI for '/Lab_4_bsp/system.h'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Cannot determine URI for '/Lab_4_bsp/system.h'.
+	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.create(ResourceFileBuffer.java:238)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:112)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.createFileInfo(TextFileDocumentProvider.java:559)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.createFileInfo(CDocumentProvider.java:794)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.connect(TextFileDocumentProvider.java:478)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.connect(CDocumentProvider.java:726)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:4233)
+	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:237)
+	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1480)
+	at org.eclipse.ui.editors.text.TextEditor.doSetInput(TextEditor.java:169)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.internalDoSetInput(CEditor.java:1429)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:1394)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$19.run(AbstractTextEditor.java:3220)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:463)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:371)
+	at org.eclipse.ui.internal.WorkbenchWindow$14.run(WorkbenchWindow.java:2181)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2177)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3238)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3265)
+	at org.eclipse.ui.internal.EditorReference.initialize(EditorReference.java:361)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:319)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:898)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:879)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:121)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:345)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:264)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:162)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:104)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:73)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:55)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:129)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:971)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:640)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:746)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:717)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:711)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:695)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.showTab(StackRenderer.java:1306)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer$1.handleEvent(LazyStackRenderer.java:72)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler$1.run(UIEventHandler.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:186)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:145)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4633)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:211)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:36)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:85)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:59)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
+	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElement(ElementContainerImpl.java:171)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.hidePart(PartServiceImpl.java:1283)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.hidePart(PartServiceImpl.java:1236)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.closePart(StackRenderer.java:1278)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.access$4(StackRenderer.java:1260)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer$11.close(StackRenderer.java:1145)
+	at org.eclipse.swt.custom.CTabFolder.onMouse(CTabFolder.java:1921)
+	at org.eclipse.swt.custom.CTabFolder$1.handleEvent(CTabFolder.java:335)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4481)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1329)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3819)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3430)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:694)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:606)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1488)
+!SUBENTRY 2 org.eclipse.core.filebuffers 4 0 2021-01-02 10:33:07.987
+!MESSAGE Cannot determine URI for '/Lab_4_bsp/system.h'.
 
-!ENTRY org.eclipse.cdt.core 1 0 2020-12-29 19:20:11.341
-!MESSAGE Indexed 'Lab_4_bsp' (80 sources, 151 headers) in 10.5 sec: 5,365 declarations; 8,681 references; 1 unresolved inclusions; 2 syntax errors; 9 unresolved names (0.064%)
+!ENTRY org.eclipse.cdt.core 1 0 2021-01-02 10:36:00.792
+!MESSAGE Indexed 'lab_4_full_bsp' (79 sources, 146 headers) in 22.3 sec: 5,244 declarations; 8,428 references; 4 unresolved inclusions; 2 syntax errors; 12 unresolved names (0.088%)
 
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 19:28:42.480
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 19:28:44.151
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 19:58:41.401
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 19:58:42.921
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:00:30.346
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:00:31.925
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:00:54.922
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:00:56.494
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:04:36.674
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:04:38.179
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:06:52.193
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:06:53.287
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:06:54.849
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:17:56.869
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:17:58.446
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:27:44.779
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:27:47.002
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:32:49.243
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:32:49.919
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:32:51.952
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:33:58.782
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:34:01.693
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:34:03.796
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:45:26.430
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:45:26.939
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 20:45:28.589
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 21:41:38.060
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 21:41:39.632
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 21:45:44.228
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 21:45:45.715
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 21:47:19.183
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 21:47:19.512
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 21:47:21.063
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 21:55:55.133
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 21:55:55.354
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 21:55:56.821
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 21:56:24.823
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 21:56:26.236
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 22:01:00.145
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 22:01:00.351
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 22:01:01.746
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 22:30:23.001
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 22:30:24.393
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 22:37:26.076
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 22:37:26.261
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 22:37:27.656
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 22:41:47.399
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 22:41:47.682
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 22:41:49.106
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 22:42:57.895
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 22:42:58.162
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 22:42:59.696
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 22:44:14.989
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 22:44:15.139
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 22:44:16.668
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:00:48.222
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:00:49.642
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:02:55.212
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:02:55.502
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:02:57.080
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:03:43.594
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:03:43.834
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:03:45.265
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:06:59.982
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:07:00.219
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:07:01.777
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:08:00.377
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:08:00.628
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:08:02.067
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:08:10.564
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:08:10.746
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:08:12.137
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:08:16.915
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:08:17.096
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:08:18.482
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:08:23.066
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:08:23.240
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:08:24.777
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:09:20.069
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:09:20.397
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:09:21.883
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:14:54.594
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:14:54.814
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:14:56.240
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:15:28.817
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:15:29.421
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:15:30.824
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:15:38.047
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:15:38.217
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:15:39.616
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:16:06.153
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:16:06.473
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:16:07.942
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:16:26.733
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:16:26.884
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:16:28.304
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:16:50.990
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:16:51.173
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:16:52.587
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:17:01.388
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:17:01.555
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:17:02.957
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:17:53.184
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:17:53.390
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:17:54.812
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:18:11.326
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:18:12.127
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:18:13.589
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:18:31.920
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:18:32.181
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:18:33.658
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:19:36.486
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:19:36.689
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:19:38.094
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:20:52.864
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:20:53.129
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:20:54.538
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:23:51.065
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:23:51.292
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:23:52.676
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:24:42.943
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:24:43.673
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:24:45.076
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:25:44.721
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:25:44.912
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:25:46.284
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:26:24.448
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:26:24.644
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:26:26.045
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:26:32.697
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:26:32.859
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:26:34.287
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:27:27.683
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:27:29.076
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:32:29.134
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:32:29.284
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:32:30.675
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:33:18.601
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:33:19.999
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:34:10.920
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:34:11.070
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:34:12.510
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:34:57.762
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:34:57.920
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:34:59.307
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:35:27.131
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:35:27.330
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:35:28.687
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:36:35.602
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:36:35.991
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:36:37.411
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:36:59.146
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:36:59.940
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:37:01.403
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:38:17.158
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:38:17.312
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:38:18.726
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:39:32.764
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:39:33.053
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:39:34.475
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:41:31.145
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:41:31.507
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:41:32.940
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:41:58.238
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:41:58.914
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:42:00.302
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:42:20.219
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:42:20.507
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:42:21.965
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:42:31.316
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:42:31.420
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:42:32.843
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:43:12.773
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:43:13.310
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:43:14.712
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:44:00.279
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:44:00.994
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:44:02.415
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:44:39.294
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:44:39.789
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:44:41.158
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:45:11.638
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:45:11.886
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:45:13.309
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:45:27.828
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:45:27.994
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:45:29.476
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:45:55.891
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:45:56.196
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:45:57.562
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:46:35.709
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:46:35.999
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:46:37.473
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:47:07.181
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:47:07.361
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:47:08.759
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:47:44.320
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:47:44.792
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:47:46.186
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:47:55.186
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:47:55.427
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:47:56.843
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:48:21.247
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:48:21.551
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:48:23.053
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:49:08.587
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:49:08.743
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:49:10.201
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:49:43.456
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:49:43.643
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:49:45.045
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:50:15.715
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:50:15.954
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:50:17.387
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:50:41.385
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:50:41.654
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:50:43.067
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:51:10.257
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:51:11.709
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:51:40.052
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:51:40.282
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:51:41.703
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:52:02.416
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:52:02.669
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:52:04.106
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:52:22.070
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:52:22.292
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:52:23.712
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:53:10.571
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:53:11.007
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:53:12.425
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:53:31.043
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:53:31.237
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:53:32.648
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:54:21.746
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:54:21.955
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:54:23.401
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:54:52.394
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:54:52.634
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:54:53.989
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:55:29.709
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:55:29.897
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:55:31.308
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:55:53.622
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:55:54.111
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:55:55.522
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:58:52.667
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:58:52.838
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-29 23:58:54.268
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:00:49.027
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:00:49.385
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:00:50.784
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:01:15.103
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:01:15.297
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:01:16.709
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:01:25.099
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:01:25.279
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:01:26.701
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:02:07.290
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:02:07.464
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:02:08.913
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:02:48.557
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:02:48.979
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:02:50.378
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:03:38.617
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:03:38.837
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:03:40.292
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:04:32.478
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:04:32.718
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:04:34.136
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:04:42.430
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:04:42.545
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:04:43.949
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:05:34.823
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:05:35.094
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:05:36.524
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:06:25.535
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:06:25.981
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:06:27.392
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:06:57.283
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:06:57.955
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:06:59.398
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:07:38.183
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:07:38.819
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:07:40.170
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:07:56.914
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:07:57.217
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:07:58.764
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:08:18.453
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:08:18.651
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:08:20.123
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:08:39.231
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:08:39.728
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:08:41.124
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:09:01.617
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:09:01.878
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:09:03.255
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:09:44.728
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:09:45.136
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:09:46.539
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:11:22.280
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:11:22.438
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:11:23.839
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:12:48.908
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:12:50.313
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:14:25.094
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:14:25.527
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:14:26.936
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:19:50.055
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:19:50.292
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:19:51.698
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:23:59.801
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:24:00.066
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:24:01.495
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:26:00.857
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:26:01.134
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:26:02.520
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:26:29.457
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:26:29.791
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:26:31.240
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:28:58.338
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:28:58.641
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:29:00.023
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:29:29.933
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:29:30.173
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:29:31.603
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:29:51.469
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:29:51.923
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:29:53.341
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:30:38.168
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:30:38.328
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:30:39.731
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:31:14.185
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:31:14.542
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:31:15.949
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:33:41.523
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:33:41.877
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:33:43.320
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:34:47.209
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:34:48.149
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:34:49.528
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:35:36.707
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:35:36.998
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:35:38.414
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:36:11.178
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:36:11.365
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:36:12.761
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:36:41.115
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:36:41.887
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:36:43.323
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:36:50.655
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:36:50.799
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:36:52.246
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:37:08.853
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:37:09.086
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:37:10.536
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:37:52.859
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:37:53.121
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:37:54.540
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:38:48.330
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:38:48.595
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:38:50.059
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:39:38.674
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:39:39.527
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:39:40.929
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:41:12.192
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:41:12.389
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 00:41:13.908
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 01:53:54.650
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 01:53:54.937
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 01:53:56.399
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 01:54:33.707
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 01:54:33.931
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 01:54:35.345
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 01:56:40.416
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 01:56:40.638
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 01:56:42.098
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 01:57:29.102
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 01:57:30.532
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 01:58:13.517
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 01:58:13.806
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+!ENTRY org.eclipse.cdt.core 1 0 2021-01-02 10:36:04.372
+!MESSAGE Indexed 'lab_4_full' (1 sources, 21 headers) in 0.437 sec: 983 declarations; 1,599 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
 
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 01:58:15.245
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 01:58:35.098
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 01:58:35.635
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 01:58:37.096
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:04:51.307
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:04:51.578
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:04:53.006
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:11:14.410
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:11:14.708
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:11:16.207
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:11:30.152
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:11:30.362
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:11:31.820
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:11:38.138
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:11:38.380
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:11:40.222
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:12:20.250
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:12:20.486
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:12:22.012
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:12:33.932
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:12:34.166
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:12:35.753
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:12:57.979
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:12:58.257
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:12:59.756
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:13:24.212
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:13:24.543
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:13:26.097
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:13:58.717
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:14:00.169
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:16:02.541
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:16:02.751
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:16:04.225
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:16:32.828
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:16:34.302
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:17:14.353
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:17:16.197
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:32:10.069
-!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:32:10.703
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 10:49:10.806
 !MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:32:12.141
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 10:49:12.373
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/lab_4_full/lab_4_full.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:32:24.475
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 10:50:31.778
 !MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:32:24.621
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 10:50:31.951
 !MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:32:26.130
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 10:50:33.339
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/lab_4_full/lab_4_full.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:32:32.005
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 10:51:53.577
 !MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:32:32.187
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 10:51:53.824
 !MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:32:33.641
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 10:51:55.239
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/lab_4_full/lab_4_full.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:32:38.044
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 10:52:11.656
 !MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:32:38.324
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 10:52:11.816
 !MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:32:39.801
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 10:52:13.171
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/lab_4_full/lab_4_full.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:39:13.145
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 10:52:52.053
 !MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:39:13.391
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 10:52:52.192
 !MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:39:14.784
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 10:52:53.631
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/lab_4_full/lab_4_full.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:39:27.681
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 10:54:59.065
 !MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:39:27.870
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:39:29.289
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:40:07.159
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 10:54:59.266
 !MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
 
-!ENTRY com.altera.sbtgui.launch 1 0 2020-12-30 02:40:08.579
-!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/application/Lab_4.elf]
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 10:55:00.836
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/lab_4_full/lab_4_full.elf]

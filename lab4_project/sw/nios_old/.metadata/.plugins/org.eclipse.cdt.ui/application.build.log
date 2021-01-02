@@ -1,0 +1,57 @@
+10:21:08 **** Incremental Build of configuration Nios II for project application ****
+make all 
+Info: Building /home/vm/Desktop/shared/lab4_project/sw/nios/Lab_4_bsp/
+make --no-print-directory -C /home/vm/Desktop/shared/lab4_project/sw/nios/Lab_4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I/home/vm/Desktop/shared/lab4_project/sw/nios/Lab_4_bsp//HAL/inc -I/home/vm/Desktop/shared/lab4_project/sw/nios/Lab_4_bsp/ -I/home/vm/Desktop/shared/lab4_project/sw/nios/Lab_4_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+In file included from hello_world.c:22:0:
+demo_i2c.c: In function 'main_i2c':
+demo_i2c.c:11:31: error: 'I2C_0_BASE' undeclared (first use in this function)
+ #define TRDB_D5M_0_I2C_0_BASE I2C_0_BASE   /* i2c base address from system.h (ADAPT TO YOUR DESIGN) */
+                               ^
+demo_i2c.c:40:34: note: in expansion of macro 'TRDB_D5M_0_I2C_0_BASE'
+  i2c_dev i2c = i2c_inst((void *) TRDB_D5M_0_I2C_0_BASE);
+                                  ^
+demo_i2c.c:11:31: note: each undeclared identifier is reported only once for each function it appears in
+ #define TRDB_D5M_0_I2C_0_BASE I2C_0_BASE   /* i2c base address from system.h (ADAPT TO YOUR DESIGN) */
+                               ^
+demo_i2c.c:40:34: note: in expansion of macro 'TRDB_D5M_0_I2C_0_BASE'
+  i2c_dev i2c = i2c_inst((void *) TRDB_D5M_0_I2C_0_BASE);
+                                  ^
+In file included from hello_world.c:21:0:
+hello_world.c: In function 'CAM_init':
+Makefile:777: recipe for target 'obj/default/hello_world.o' failed
+hello_world.c:117:15: error: 'D5M_TOP_0_BASE' undeclared (first use in this function)
+  IOWR_8DIRECT(D5M_TOP_0_BASE, 0, 0b00000000);
+               ^
+/home/vm/Desktop/shared/lab4_project/sw/nios/Lab_4_bsp//HAL/inc/io.h:51:23: note: in definition of macro '__IO_CALC_ADDRESS_DYNAMIC'
+   ((void *)(((alt_u8*)BASE) + (OFFSET)))
+                       ^
+hello_world.c:117:2: note: in expansion of macro 'IOWR_8DIRECT'
+  IOWR_8DIRECT(D5M_TOP_0_BASE, 0, 0b00000000);
+  ^
+hello_world.c: In function 'new_cam_init':
+hello_world.c:148:15: error: 'D5M_TOP_0_BASE' undeclared (first use in this function)
+  IOWR_8DIRECT(D5M_TOP_0_BASE, 0, 0b00000000);
+               ^
+/home/vm/Desktop/shared/lab4_project/sw/nios/Lab_4_bsp//HAL/inc/io.h:51:23: note: in definition of macro '__IO_CALC_ADDRESS_DYNAMIC'
+   ((void *)(((alt_u8*)BASE) + (OFFSET)))
+                       ^
+hello_world.c:148:2: note: in expansion of macro 'IOWR_8DIRECT'
+  IOWR_8DIRECT(D5M_TOP_0_BASE, 0, 0b00000000);
+  ^
+hello_world.c: In function 'cam_write':
+hello_world.c:170:15: error: 'D5M_TOP_0_BASE' undeclared (first use in this function)
+  IOWR_8DIRECT(D5M_TOP_0_BASE, 0, command);
+               ^
+/home/vm/Desktop/shared/lab4_project/sw/nios/Lab_4_bsp//HAL/inc/io.h:51:23: note: in definition of macro '__IO_CALC_ADDRESS_DYNAMIC'
+   ((void *)(((alt_u8*)BASE) + (OFFSET)))
+                       ^
+hello_world.c:170:2: note: in expansion of macro 'IOWR_8DIRECT'
+  IOWR_8DIRECT(D5M_TOP_0_BASE, 0, command);
+  ^
+make: *** [obj/default/hello_world.o] Error 1
+
+10:21:09 Build Finished (took 682ms)
+

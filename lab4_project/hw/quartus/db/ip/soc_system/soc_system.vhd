@@ -85,6 +85,37 @@ entity soc_system is
 end entity soc_system;
 
 architecture rtl of soc_system is
+	component D5M_top is
+		generic (
+			AvalonAddressDepth : integer := 64;
+			AvalonBustDepth    : integer := 7;
+			AvalonBustN        : integer := 16;
+			AvalonDataDepth    : integer := 32;
+			LcdNPixel          : integer := 76800;
+			PixelCountDepth    : integer := 20;
+			PixelDepth         : integer := 16;
+			FifoCountDepth     : integer := 7
+		);
+		port (
+			clk            : in  std_logic                     := 'X';             -- clk
+			address_SL     : in  std_logic_vector(3 downto 0)  := (others => 'X'); -- address
+			write_SL       : in  std_logic                     := 'X';             -- write
+			read_SL        : in  std_logic                     := 'X';             -- read
+			writedata_SL   : in  std_logic_vector(7 downto 0)  := (others => 'X'); -- writedata
+			readdata_SL    : out std_logic_vector(7 downto 0);                     -- readdata
+			waitrequest_MA : in  std_logic                     := 'X';             -- waitrequest
+			write_MA       : out std_logic;                                        -- write
+			read_MA        : out std_logic;                                        -- read
+			burstcount_MA  : out std_logic_vector(6 downto 0);                     -- burstcount
+			address_MA     : out std_logic_vector(63 downto 0);                    -- address
+			writedata_MA   : out std_logic_vector(31 downto 0);                    -- writedata
+			readdata_MA    : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			readDataVa_MA  : in  std_logic                     := 'X';             -- readdatavalid
+			beginburst_MA  : out std_logic;                                        -- beginbursttransfer
+			nReset         : in  std_logic                     := 'X'              -- reset_n
+		);
+	end component D5M_top;
+
 	component altera_address_span_extender is
 		generic (
 			DATA_WIDTH           : integer                       := 32;
@@ -310,7 +341,16 @@ architecture rtl of soc_system is
 	component soc_system_mm_interconnect_0 is
 		port (
 			clk_0_clk_clk                                        : in  std_logic                     := 'X';             -- clk
-			display_ip_0_reset_sink_reset_bridge_in_reset_reset  : in  std_logic                     := 'X';             -- reset
+			D5M_simu_0_reset_sink_reset_bridge_in_reset_reset    : in  std_logic                     := 'X';             -- reset
+			D5M_simu_0_avalon_master_address                     : in  std_logic_vector(63 downto 0) := (others => 'X'); -- address
+			D5M_simu_0_avalon_master_waitrequest                 : out std_logic;                                        -- waitrequest
+			D5M_simu_0_avalon_master_burstcount                  : in  std_logic_vector(6 downto 0)  := (others => 'X'); -- burstcount
+			D5M_simu_0_avalon_master_beginbursttransfer          : in  std_logic                     := 'X';             -- beginbursttransfer
+			D5M_simu_0_avalon_master_read                        : in  std_logic                     := 'X';             -- read
+			D5M_simu_0_avalon_master_readdata                    : out std_logic_vector(31 downto 0);                    -- readdata
+			D5M_simu_0_avalon_master_readdatavalid               : out std_logic;                                        -- readdatavalid
+			D5M_simu_0_avalon_master_write                       : in  std_logic                     := 'X';             -- write
+			D5M_simu_0_avalon_master_writedata                   : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
 			display_ip_0_avalon_master_0_address                 : in  std_logic_vector(63 downto 0) := (others => 'X'); -- address
 			display_ip_0_avalon_master_0_waitrequest             : out std_logic;                                        -- waitrequest
 			display_ip_0_avalon_master_0_burstcount              : in  std_logic_vector(3 downto 0)  := (others => 'X'); -- burstcount
@@ -341,6 +381,11 @@ architecture rtl of soc_system is
 			address_span_extender_0_windowed_slave_byteenable    : out std_logic_vector(3 downto 0);                     -- byteenable
 			address_span_extender_0_windowed_slave_readdatavalid : in  std_logic                     := 'X';             -- readdatavalid
 			address_span_extender_0_windowed_slave_waitrequest   : in  std_logic                     := 'X';             -- waitrequest
+			D5M_simu_0_sl_address                                : out std_logic_vector(3 downto 0);                     -- address
+			D5M_simu_0_sl_write                                  : out std_logic;                                        -- write
+			D5M_simu_0_sl_read                                   : out std_logic;                                        -- read
+			D5M_simu_0_sl_readdata                               : in  std_logic_vector(7 downto 0)  := (others => 'X'); -- readdata
+			D5M_simu_0_sl_writedata                              : out std_logic_vector(7 downto 0);                     -- writedata
 			display_ip_0_avalon_slave_0_address                  : out std_logic_vector(1 downto 0);                     -- address
 			display_ip_0_avalon_slave_0_write                    : out std_logic;                                        -- write
 			display_ip_0_avalon_slave_0_read                     : out std_logic;                                        -- read
@@ -538,6 +583,15 @@ architecture rtl of soc_system is
 		);
 	end component soc_system_rst_controller_001;
 
+	signal d5m_simu_0_avalon_master_beginbursttransfer                            : std_logic;                     -- D5M_simu_0:beginburst_MA -> mm_interconnect_0:D5M_simu_0_avalon_master_beginbursttransfer
+	signal d5m_simu_0_avalon_master_waitrequest                                   : std_logic;                     -- mm_interconnect_0:D5M_simu_0_avalon_master_waitrequest -> D5M_simu_0:waitrequest_MA
+	signal d5m_simu_0_avalon_master_readdata                                      : std_logic_vector(31 downto 0); -- mm_interconnect_0:D5M_simu_0_avalon_master_readdata -> D5M_simu_0:readdata_MA
+	signal d5m_simu_0_avalon_master_read                                          : std_logic;                     -- D5M_simu_0:read_MA -> mm_interconnect_0:D5M_simu_0_avalon_master_read
+	signal d5m_simu_0_avalon_master_address                                       : std_logic_vector(63 downto 0); -- D5M_simu_0:address_MA -> mm_interconnect_0:D5M_simu_0_avalon_master_address
+	signal d5m_simu_0_avalon_master_readdatavalid                                 : std_logic;                     -- mm_interconnect_0:D5M_simu_0_avalon_master_readdatavalid -> D5M_simu_0:readDataVa_MA
+	signal d5m_simu_0_avalon_master_write                                         : std_logic;                     -- D5M_simu_0:write_MA -> mm_interconnect_0:D5M_simu_0_avalon_master_write
+	signal d5m_simu_0_avalon_master_writedata                                     : std_logic_vector(31 downto 0); -- D5M_simu_0:writedata_MA -> mm_interconnect_0:D5M_simu_0_avalon_master_writedata
+	signal d5m_simu_0_avalon_master_burstcount                                    : std_logic_vector(6 downto 0);  -- D5M_simu_0:burstcount_MA -> mm_interconnect_0:D5M_simu_0_avalon_master_burstcount
 	signal display_ip_0_avalon_master_0_beginbursttransfer                        : std_logic;                     -- display_ip_0:AM_beginBurst -> mm_interconnect_0:display_ip_0_avalon_master_0_beginbursttransfer
 	signal display_ip_0_avalon_master_0_readdata                                  : std_logic_vector(31 downto 0); -- mm_interconnect_0:display_ip_0_avalon_master_0_readdata -> display_ip_0:AM_readData
 	signal display_ip_0_avalon_master_0_waitrequest                               : std_logic;                     -- mm_interconnect_0:display_ip_0_avalon_master_0_waitrequest -> display_ip_0:AM_waitRequest
@@ -595,6 +649,11 @@ architecture rtl of soc_system is
 	signal mm_interconnect_0_onchip_memory2_0_s1_write                            : std_logic;                     -- mm_interconnect_0:onchip_memory2_0_s1_write -> onchip_memory2_0:write
 	signal mm_interconnect_0_onchip_memory2_0_s1_writedata                        : std_logic_vector(31 downto 0); -- mm_interconnect_0:onchip_memory2_0_s1_writedata -> onchip_memory2_0:writedata
 	signal mm_interconnect_0_onchip_memory2_0_s1_clken                            : std_logic;                     -- mm_interconnect_0:onchip_memory2_0_s1_clken -> onchip_memory2_0:clken
+	signal mm_interconnect_0_d5m_simu_0_sl_readdata                               : std_logic_vector(7 downto 0);  -- D5M_simu_0:readdata_SL -> mm_interconnect_0:D5M_simu_0_sl_readdata
+	signal mm_interconnect_0_d5m_simu_0_sl_address                                : std_logic_vector(3 downto 0);  -- mm_interconnect_0:D5M_simu_0_sl_address -> D5M_simu_0:address_SL
+	signal mm_interconnect_0_d5m_simu_0_sl_read                                   : std_logic;                     -- mm_interconnect_0:D5M_simu_0_sl_read -> D5M_simu_0:read_SL
+	signal mm_interconnect_0_d5m_simu_0_sl_write                                  : std_logic;                     -- mm_interconnect_0:D5M_simu_0_sl_write -> D5M_simu_0:write_SL
+	signal mm_interconnect_0_d5m_simu_0_sl_writedata                              : std_logic_vector(7 downto 0);  -- mm_interconnect_0:D5M_simu_0_sl_writedata -> D5M_simu_0:writedata_SL
 	signal address_span_extender_0_expanded_master_waitrequest                    : std_logic;                     -- mm_interconnect_1:address_span_extender_0_expanded_master_waitrequest -> address_span_extender_0:avm_m0_waitrequest
 	signal address_span_extender_0_expanded_master_readdata                       : std_logic_vector(31 downto 0); -- mm_interconnect_1:address_span_extender_0_expanded_master_readdata -> address_span_extender_0:avm_m0_readdata
 	signal address_span_extender_0_expanded_master_address                        : std_logic_vector(31 downto 0); -- address_span_extender_0:avm_m0_address -> mm_interconnect_1:address_span_extender_0_expanded_master_address
@@ -615,7 +674,7 @@ architecture rtl of soc_system is
 	signal mm_interconnect_1_hps_0_f2h_sdram0_data_burstcount                     : std_logic_vector(7 downto 0);  -- mm_interconnect_1:hps_0_f2h_sdram0_data_burstcount -> hps_0:f2h_sdram0_BURSTCOUNT
 	signal irq_mapper_receiver0_irq                                               : std_logic;                     -- jtag_uart_0:av_irq -> irq_mapper:receiver0_irq
 	signal nios2_gen2_0_irq_irq                                                   : std_logic_vector(31 downto 0); -- irq_mapper:sender_irq -> nios2_gen2_0:irq
-	signal rst_controller_reset_out_reset                                         : std_logic;                     -- rst_controller:reset_out -> [address_span_extender_0:reset, irq_mapper:reset, mm_interconnect_0:display_ip_0_reset_sink_reset_bridge_in_reset_reset, mm_interconnect_1:address_span_extender_0_reset_reset_bridge_in_reset_reset, onchip_memory2_0:reset, rst_controller_reset_out_reset:in, rst_translator:in_reset]
+	signal rst_controller_reset_out_reset                                         : std_logic;                     -- rst_controller:reset_out -> [address_span_extender_0:reset, irq_mapper:reset, mm_interconnect_0:D5M_simu_0_reset_sink_reset_bridge_in_reset_reset, mm_interconnect_1:address_span_extender_0_reset_reset_bridge_in_reset_reset, onchip_memory2_0:reset, rst_controller_reset_out_reset:in, rst_translator:in_reset]
 	signal rst_controller_reset_out_reset_req                                     : std_logic;                     -- rst_controller:reset_req -> [nios2_gen2_0:reset_req, onchip_memory2_0:reset_req, rst_translator:reset_req_in]
 	signal nios2_gen2_0_debug_reset_request_reset                                 : std_logic;                     -- nios2_gen2_0:debug_reset_request -> rst_controller:reset_in1
 	signal hps_0_h2f_reset_reset                                                  : std_logic;                     -- hps_0:h2f_rst_n -> hps_0_h2f_reset_reset:in
@@ -623,10 +682,40 @@ architecture rtl of soc_system is
 	signal reset_reset_n_ports_inv                                                : std_logic;                     -- reset_reset_n:inv -> rst_controller:reset_in0
 	signal mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_read_ports_inv         : std_logic;                     -- mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_read:inv -> jtag_uart_0:av_read_n
 	signal mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write_ports_inv        : std_logic;                     -- mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write:inv -> jtag_uart_0:av_write_n
-	signal rst_controller_reset_out_reset_ports_inv                               : std_logic;                     -- rst_controller_reset_out_reset:inv -> [display_ip_0:nReset, jtag_uart_0:rst_n, nios2_gen2_0:reset_n]
+	signal rst_controller_reset_out_reset_ports_inv                               : std_logic;                     -- rst_controller_reset_out_reset:inv -> [D5M_simu_0:nReset, display_ip_0:nReset, jtag_uart_0:rst_n, nios2_gen2_0:reset_n]
 	signal hps_0_h2f_reset_reset_ports_inv                                        : std_logic;                     -- hps_0_h2f_reset_reset:inv -> [rst_controller:reset_in2, rst_controller_001:reset_in0]
 
 begin
+
+	d5m_simu_0 : component D5M_top
+		generic map (
+			AvalonAddressDepth => 64,
+			AvalonBustDepth    => 7,
+			AvalonBustN        => 16,
+			AvalonDataDepth    => 32,
+			LcdNPixel          => 76800,
+			PixelCountDepth    => 20,
+			PixelDepth         => 16,
+			FifoCountDepth     => 7
+		)
+		port map (
+			clk            => clk_clk,                                     --         clock.clk
+			address_SL     => mm_interconnect_0_d5m_simu_0_sl_address,     --            sl.address
+			write_SL       => mm_interconnect_0_d5m_simu_0_sl_write,       --              .write
+			read_SL        => mm_interconnect_0_d5m_simu_0_sl_read,        --              .read
+			writedata_SL   => mm_interconnect_0_d5m_simu_0_sl_writedata,   --              .writedata
+			readdata_SL    => mm_interconnect_0_d5m_simu_0_sl_readdata,    --              .readdata
+			waitrequest_MA => d5m_simu_0_avalon_master_waitrequest,        -- avalon_master.waitrequest
+			write_MA       => d5m_simu_0_avalon_master_write,              --              .write
+			read_MA        => d5m_simu_0_avalon_master_read,               --              .read
+			burstcount_MA  => d5m_simu_0_avalon_master_burstcount,         --              .burstcount
+			address_MA     => d5m_simu_0_avalon_master_address,            --              .address
+			writedata_MA   => d5m_simu_0_avalon_master_writedata,          --              .writedata
+			readdata_MA    => d5m_simu_0_avalon_master_readdata,           --              .readdata
+			readDataVa_MA  => d5m_simu_0_avalon_master_readdatavalid,      --              .readdatavalid
+			beginburst_MA  => d5m_simu_0_avalon_master_beginbursttransfer, --              .beginbursttransfer
+			nReset         => rst_controller_reset_out_reset_ports_inv     --    reset_sink.reset_n
+		);
 
 	address_span_extender_0 : component altera_address_span_extender
 		generic map (
@@ -846,65 +935,79 @@ begin
 
 	mm_interconnect_0 : component soc_system_mm_interconnect_0
 		port map (
-			clk_0_clk_clk                                        => clk_clk,                                                                --                                     clk_0_clk.clk
-			display_ip_0_reset_sink_reset_bridge_in_reset_reset  => rst_controller_reset_out_reset,                                         -- display_ip_0_reset_sink_reset_bridge_in_reset.reset
-			display_ip_0_avalon_master_0_address                 => display_ip_0_avalon_master_0_address,                                   --                  display_ip_0_avalon_master_0.address
-			display_ip_0_avalon_master_0_waitrequest             => display_ip_0_avalon_master_0_waitrequest,                               --                                              .waitrequest
-			display_ip_0_avalon_master_0_burstcount              => display_ip_0_avalon_master_0_burstcount,                                --                                              .burstcount
-			display_ip_0_avalon_master_0_beginbursttransfer      => display_ip_0_avalon_master_0_beginbursttransfer,                        --                                              .beginbursttransfer
-			display_ip_0_avalon_master_0_read                    => display_ip_0_avalon_master_0_read,                                      --                                              .read
-			display_ip_0_avalon_master_0_readdata                => display_ip_0_avalon_master_0_readdata,                                  --                                              .readdata
-			display_ip_0_avalon_master_0_readdatavalid           => display_ip_0_avalon_master_0_readdatavalid,                             --                                              .readdatavalid
-			nios2_gen2_0_data_master_address                     => nios2_gen2_0_data_master_address,                                       --                      nios2_gen2_0_data_master.address
-			nios2_gen2_0_data_master_waitrequest                 => nios2_gen2_0_data_master_waitrequest,                                   --                                              .waitrequest
-			nios2_gen2_0_data_master_byteenable                  => nios2_gen2_0_data_master_byteenable,                                    --                                              .byteenable
-			nios2_gen2_0_data_master_read                        => nios2_gen2_0_data_master_read,                                          --                                              .read
-			nios2_gen2_0_data_master_readdata                    => nios2_gen2_0_data_master_readdata,                                      --                                              .readdata
-			nios2_gen2_0_data_master_readdatavalid               => nios2_gen2_0_data_master_readdatavalid,                                 --                                              .readdatavalid
-			nios2_gen2_0_data_master_write                       => nios2_gen2_0_data_master_write,                                         --                                              .write
-			nios2_gen2_0_data_master_writedata                   => nios2_gen2_0_data_master_writedata,                                     --                                              .writedata
-			nios2_gen2_0_data_master_debugaccess                 => nios2_gen2_0_data_master_debugaccess,                                   --                                              .debugaccess
-			nios2_gen2_0_instruction_master_address              => nios2_gen2_0_instruction_master_address,                                --               nios2_gen2_0_instruction_master.address
-			nios2_gen2_0_instruction_master_waitrequest          => nios2_gen2_0_instruction_master_waitrequest,                            --                                              .waitrequest
-			nios2_gen2_0_instruction_master_read                 => nios2_gen2_0_instruction_master_read,                                   --                                              .read
-			nios2_gen2_0_instruction_master_readdata             => nios2_gen2_0_instruction_master_readdata,                               --                                              .readdata
-			nios2_gen2_0_instruction_master_readdatavalid        => nios2_gen2_0_instruction_master_readdatavalid,                          --                                              .readdatavalid
-			address_span_extender_0_windowed_slave_address       => mm_interconnect_0_address_span_extender_0_windowed_slave_address,       --        address_span_extender_0_windowed_slave.address
-			address_span_extender_0_windowed_slave_write         => mm_interconnect_0_address_span_extender_0_windowed_slave_write,         --                                              .write
-			address_span_extender_0_windowed_slave_read          => mm_interconnect_0_address_span_extender_0_windowed_slave_read,          --                                              .read
-			address_span_extender_0_windowed_slave_readdata      => mm_interconnect_0_address_span_extender_0_windowed_slave_readdata,      --                                              .readdata
-			address_span_extender_0_windowed_slave_writedata     => mm_interconnect_0_address_span_extender_0_windowed_slave_writedata,     --                                              .writedata
-			address_span_extender_0_windowed_slave_burstcount    => mm_interconnect_0_address_span_extender_0_windowed_slave_burstcount,    --                                              .burstcount
-			address_span_extender_0_windowed_slave_byteenable    => mm_interconnect_0_address_span_extender_0_windowed_slave_byteenable,    --                                              .byteenable
-			address_span_extender_0_windowed_slave_readdatavalid => mm_interconnect_0_address_span_extender_0_windowed_slave_readdatavalid, --                                              .readdatavalid
-			address_span_extender_0_windowed_slave_waitrequest   => mm_interconnect_0_address_span_extender_0_windowed_slave_waitrequest,   --                                              .waitrequest
-			display_ip_0_avalon_slave_0_address                  => mm_interconnect_0_display_ip_0_avalon_slave_0_address,                  --                   display_ip_0_avalon_slave_0.address
-			display_ip_0_avalon_slave_0_write                    => mm_interconnect_0_display_ip_0_avalon_slave_0_write,                    --                                              .write
-			display_ip_0_avalon_slave_0_read                     => mm_interconnect_0_display_ip_0_avalon_slave_0_read,                     --                                              .read
-			display_ip_0_avalon_slave_0_readdata                 => mm_interconnect_0_display_ip_0_avalon_slave_0_readdata,                 --                                              .readdata
-			display_ip_0_avalon_slave_0_writedata                => mm_interconnect_0_display_ip_0_avalon_slave_0_writedata,                --                                              .writedata
-			jtag_uart_0_avalon_jtag_slave_address                => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_address,                --                 jtag_uart_0_avalon_jtag_slave.address
-			jtag_uart_0_avalon_jtag_slave_write                  => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write,                  --                                              .write
-			jtag_uart_0_avalon_jtag_slave_read                   => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_read,                   --                                              .read
-			jtag_uart_0_avalon_jtag_slave_readdata               => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_readdata,               --                                              .readdata
-			jtag_uart_0_avalon_jtag_slave_writedata              => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_writedata,              --                                              .writedata
-			jtag_uart_0_avalon_jtag_slave_waitrequest            => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_waitrequest,            --                                              .waitrequest
-			jtag_uart_0_avalon_jtag_slave_chipselect             => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_chipselect,             --                                              .chipselect
-			nios2_gen2_0_debug_mem_slave_address                 => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_address,                 --                  nios2_gen2_0_debug_mem_slave.address
-			nios2_gen2_0_debug_mem_slave_write                   => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_write,                   --                                              .write
-			nios2_gen2_0_debug_mem_slave_read                    => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_read,                    --                                              .read
-			nios2_gen2_0_debug_mem_slave_readdata                => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_readdata,                --                                              .readdata
-			nios2_gen2_0_debug_mem_slave_writedata               => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_writedata,               --                                              .writedata
-			nios2_gen2_0_debug_mem_slave_byteenable              => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_byteenable,              --                                              .byteenable
-			nios2_gen2_0_debug_mem_slave_waitrequest             => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_waitrequest,             --                                              .waitrequest
-			nios2_gen2_0_debug_mem_slave_debugaccess             => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_debugaccess,             --                                              .debugaccess
-			onchip_memory2_0_s1_address                          => mm_interconnect_0_onchip_memory2_0_s1_address,                          --                           onchip_memory2_0_s1.address
-			onchip_memory2_0_s1_write                            => mm_interconnect_0_onchip_memory2_0_s1_write,                            --                                              .write
-			onchip_memory2_0_s1_readdata                         => mm_interconnect_0_onchip_memory2_0_s1_readdata,                         --                                              .readdata
-			onchip_memory2_0_s1_writedata                        => mm_interconnect_0_onchip_memory2_0_s1_writedata,                        --                                              .writedata
-			onchip_memory2_0_s1_byteenable                       => mm_interconnect_0_onchip_memory2_0_s1_byteenable,                       --                                              .byteenable
-			onchip_memory2_0_s1_chipselect                       => mm_interconnect_0_onchip_memory2_0_s1_chipselect,                       --                                              .chipselect
-			onchip_memory2_0_s1_clken                            => mm_interconnect_0_onchip_memory2_0_s1_clken                             --                                              .clken
+			clk_0_clk_clk                                        => clk_clk,                                                                --                                   clk_0_clk.clk
+			D5M_simu_0_reset_sink_reset_bridge_in_reset_reset    => rst_controller_reset_out_reset,                                         -- D5M_simu_0_reset_sink_reset_bridge_in_reset.reset
+			D5M_simu_0_avalon_master_address                     => d5m_simu_0_avalon_master_address,                                       --                    D5M_simu_0_avalon_master.address
+			D5M_simu_0_avalon_master_waitrequest                 => d5m_simu_0_avalon_master_waitrequest,                                   --                                            .waitrequest
+			D5M_simu_0_avalon_master_burstcount                  => d5m_simu_0_avalon_master_burstcount,                                    --                                            .burstcount
+			D5M_simu_0_avalon_master_beginbursttransfer          => d5m_simu_0_avalon_master_beginbursttransfer,                            --                                            .beginbursttransfer
+			D5M_simu_0_avalon_master_read                        => d5m_simu_0_avalon_master_read,                                          --                                            .read
+			D5M_simu_0_avalon_master_readdata                    => d5m_simu_0_avalon_master_readdata,                                      --                                            .readdata
+			D5M_simu_0_avalon_master_readdatavalid               => d5m_simu_0_avalon_master_readdatavalid,                                 --                                            .readdatavalid
+			D5M_simu_0_avalon_master_write                       => d5m_simu_0_avalon_master_write,                                         --                                            .write
+			D5M_simu_0_avalon_master_writedata                   => d5m_simu_0_avalon_master_writedata,                                     --                                            .writedata
+			display_ip_0_avalon_master_0_address                 => display_ip_0_avalon_master_0_address,                                   --                display_ip_0_avalon_master_0.address
+			display_ip_0_avalon_master_0_waitrequest             => display_ip_0_avalon_master_0_waitrequest,                               --                                            .waitrequest
+			display_ip_0_avalon_master_0_burstcount              => display_ip_0_avalon_master_0_burstcount,                                --                                            .burstcount
+			display_ip_0_avalon_master_0_beginbursttransfer      => display_ip_0_avalon_master_0_beginbursttransfer,                        --                                            .beginbursttransfer
+			display_ip_0_avalon_master_0_read                    => display_ip_0_avalon_master_0_read,                                      --                                            .read
+			display_ip_0_avalon_master_0_readdata                => display_ip_0_avalon_master_0_readdata,                                  --                                            .readdata
+			display_ip_0_avalon_master_0_readdatavalid           => display_ip_0_avalon_master_0_readdatavalid,                             --                                            .readdatavalid
+			nios2_gen2_0_data_master_address                     => nios2_gen2_0_data_master_address,                                       --                    nios2_gen2_0_data_master.address
+			nios2_gen2_0_data_master_waitrequest                 => nios2_gen2_0_data_master_waitrequest,                                   --                                            .waitrequest
+			nios2_gen2_0_data_master_byteenable                  => nios2_gen2_0_data_master_byteenable,                                    --                                            .byteenable
+			nios2_gen2_0_data_master_read                        => nios2_gen2_0_data_master_read,                                          --                                            .read
+			nios2_gen2_0_data_master_readdata                    => nios2_gen2_0_data_master_readdata,                                      --                                            .readdata
+			nios2_gen2_0_data_master_readdatavalid               => nios2_gen2_0_data_master_readdatavalid,                                 --                                            .readdatavalid
+			nios2_gen2_0_data_master_write                       => nios2_gen2_0_data_master_write,                                         --                                            .write
+			nios2_gen2_0_data_master_writedata                   => nios2_gen2_0_data_master_writedata,                                     --                                            .writedata
+			nios2_gen2_0_data_master_debugaccess                 => nios2_gen2_0_data_master_debugaccess,                                   --                                            .debugaccess
+			nios2_gen2_0_instruction_master_address              => nios2_gen2_0_instruction_master_address,                                --             nios2_gen2_0_instruction_master.address
+			nios2_gen2_0_instruction_master_waitrequest          => nios2_gen2_0_instruction_master_waitrequest,                            --                                            .waitrequest
+			nios2_gen2_0_instruction_master_read                 => nios2_gen2_0_instruction_master_read,                                   --                                            .read
+			nios2_gen2_0_instruction_master_readdata             => nios2_gen2_0_instruction_master_readdata,                               --                                            .readdata
+			nios2_gen2_0_instruction_master_readdatavalid        => nios2_gen2_0_instruction_master_readdatavalid,                          --                                            .readdatavalid
+			address_span_extender_0_windowed_slave_address       => mm_interconnect_0_address_span_extender_0_windowed_slave_address,       --      address_span_extender_0_windowed_slave.address
+			address_span_extender_0_windowed_slave_write         => mm_interconnect_0_address_span_extender_0_windowed_slave_write,         --                                            .write
+			address_span_extender_0_windowed_slave_read          => mm_interconnect_0_address_span_extender_0_windowed_slave_read,          --                                            .read
+			address_span_extender_0_windowed_slave_readdata      => mm_interconnect_0_address_span_extender_0_windowed_slave_readdata,      --                                            .readdata
+			address_span_extender_0_windowed_slave_writedata     => mm_interconnect_0_address_span_extender_0_windowed_slave_writedata,     --                                            .writedata
+			address_span_extender_0_windowed_slave_burstcount    => mm_interconnect_0_address_span_extender_0_windowed_slave_burstcount,    --                                            .burstcount
+			address_span_extender_0_windowed_slave_byteenable    => mm_interconnect_0_address_span_extender_0_windowed_slave_byteenable,    --                                            .byteenable
+			address_span_extender_0_windowed_slave_readdatavalid => mm_interconnect_0_address_span_extender_0_windowed_slave_readdatavalid, --                                            .readdatavalid
+			address_span_extender_0_windowed_slave_waitrequest   => mm_interconnect_0_address_span_extender_0_windowed_slave_waitrequest,   --                                            .waitrequest
+			D5M_simu_0_sl_address                                => mm_interconnect_0_d5m_simu_0_sl_address,                                --                               D5M_simu_0_sl.address
+			D5M_simu_0_sl_write                                  => mm_interconnect_0_d5m_simu_0_sl_write,                                  --                                            .write
+			D5M_simu_0_sl_read                                   => mm_interconnect_0_d5m_simu_0_sl_read,                                   --                                            .read
+			D5M_simu_0_sl_readdata                               => mm_interconnect_0_d5m_simu_0_sl_readdata,                               --                                            .readdata
+			D5M_simu_0_sl_writedata                              => mm_interconnect_0_d5m_simu_0_sl_writedata,                              --                                            .writedata
+			display_ip_0_avalon_slave_0_address                  => mm_interconnect_0_display_ip_0_avalon_slave_0_address,                  --                 display_ip_0_avalon_slave_0.address
+			display_ip_0_avalon_slave_0_write                    => mm_interconnect_0_display_ip_0_avalon_slave_0_write,                    --                                            .write
+			display_ip_0_avalon_slave_0_read                     => mm_interconnect_0_display_ip_0_avalon_slave_0_read,                     --                                            .read
+			display_ip_0_avalon_slave_0_readdata                 => mm_interconnect_0_display_ip_0_avalon_slave_0_readdata,                 --                                            .readdata
+			display_ip_0_avalon_slave_0_writedata                => mm_interconnect_0_display_ip_0_avalon_slave_0_writedata,                --                                            .writedata
+			jtag_uart_0_avalon_jtag_slave_address                => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_address,                --               jtag_uart_0_avalon_jtag_slave.address
+			jtag_uart_0_avalon_jtag_slave_write                  => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write,                  --                                            .write
+			jtag_uart_0_avalon_jtag_slave_read                   => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_read,                   --                                            .read
+			jtag_uart_0_avalon_jtag_slave_readdata               => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_readdata,               --                                            .readdata
+			jtag_uart_0_avalon_jtag_slave_writedata              => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_writedata,              --                                            .writedata
+			jtag_uart_0_avalon_jtag_slave_waitrequest            => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_waitrequest,            --                                            .waitrequest
+			jtag_uart_0_avalon_jtag_slave_chipselect             => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_chipselect,             --                                            .chipselect
+			nios2_gen2_0_debug_mem_slave_address                 => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_address,                 --                nios2_gen2_0_debug_mem_slave.address
+			nios2_gen2_0_debug_mem_slave_write                   => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_write,                   --                                            .write
+			nios2_gen2_0_debug_mem_slave_read                    => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_read,                    --                                            .read
+			nios2_gen2_0_debug_mem_slave_readdata                => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_readdata,                --                                            .readdata
+			nios2_gen2_0_debug_mem_slave_writedata               => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_writedata,               --                                            .writedata
+			nios2_gen2_0_debug_mem_slave_byteenable              => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_byteenable,              --                                            .byteenable
+			nios2_gen2_0_debug_mem_slave_waitrequest             => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_waitrequest,             --                                            .waitrequest
+			nios2_gen2_0_debug_mem_slave_debugaccess             => mm_interconnect_0_nios2_gen2_0_debug_mem_slave_debugaccess,             --                                            .debugaccess
+			onchip_memory2_0_s1_address                          => mm_interconnect_0_onchip_memory2_0_s1_address,                          --                         onchip_memory2_0_s1.address
+			onchip_memory2_0_s1_write                            => mm_interconnect_0_onchip_memory2_0_s1_write,                            --                                            .write
+			onchip_memory2_0_s1_readdata                         => mm_interconnect_0_onchip_memory2_0_s1_readdata,                         --                                            .readdata
+			onchip_memory2_0_s1_writedata                        => mm_interconnect_0_onchip_memory2_0_s1_writedata,                        --                                            .writedata
+			onchip_memory2_0_s1_byteenable                       => mm_interconnect_0_onchip_memory2_0_s1_byteenable,                       --                                            .byteenable
+			onchip_memory2_0_s1_chipselect                       => mm_interconnect_0_onchip_memory2_0_s1_chipselect,                       --                                            .chipselect
+			onchip_memory2_0_s1_clken                            => mm_interconnect_0_onchip_memory2_0_s1_clken                             --                                            .clken
 		);
 
 	mm_interconnect_1 : component soc_system_mm_interconnect_1

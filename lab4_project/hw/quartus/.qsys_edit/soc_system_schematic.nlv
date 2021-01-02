@@ -9,12 +9,13 @@ preplace inst soc_system.hps_0.sdrctl -pg 1
 preplace inst soc_system.hps_0.gmac1 -pg 1
 preplace inst soc_system.hps_0.qspi -pg 1
 preplace inst soc_system.hps_0.sysmgr -pg 1
+preplace inst soc_system.D5M_top_0 -pg 1 -lvl 4 -y 180
 preplace inst soc_system.hps_0.l3regs -pg 1
 preplace inst soc_system.hps_0.usb0 -pg 1
 preplace inst soc_system.hps_0.i2c0 -pg 1
 preplace inst soc_system.hps_0.clk_0 -pg 1
 preplace inst soc_system.nios2_gen2_0.cpu -pg 1
-preplace inst soc_system.nios2_gen2_0 -pg 1 -lvl 2 -y 70
+preplace inst soc_system.nios2_gen2_0 -pg 1 -lvl 2 -y 160
 preplace inst soc_system.hps_0.usb1 -pg 1
 preplace inst soc_system.hps_0.i2c1 -pg 1
 preplace inst soc_system.hps_0.fpgamgr -pg 1
@@ -49,27 +50,30 @@ preplace inst soc_system.hps_0.timer -pg 1
 preplace inst soc_system.hps_0.gpio1 -pg 1
 preplace inst soc_system.hps_0.timer3 -pg 1
 preplace inst soc_system.hps_0.arm_a9_1 -pg 1
-preplace inst soc_system.address_span_extender_0 -pg 1 -lvl 3 -y 210
+preplace inst soc_system.address_span_extender_0 -pg 1 -lvl 3 -y 360
+preplace inst soc_system.i2c_0 -pg 1 -lvl 4 -y 280
 preplace inst soc_system.hps_0.nand0 -pg 1
 preplace inst soc_system.hps_0.gpio2 -pg 1
 preplace inst soc_system.hps_0.arm_gic_0 -pg 1
-preplace inst soc_system.hps_0 -pg 1 -lvl 2 -y 290
-preplace inst soc_system.clk_0 -pg 1 -lvl 1 -y 160
-preplace inst soc_system.onchip_memory2_0 -pg 1 -lvl 3 -y 30
+preplace inst soc_system.hps_0 -pg 1 -lvl 2 -y 400
+preplace inst soc_system.clk_0 -pg 1 -lvl 1 -y 250
+preplace inst soc_system.onchip_memory2_0 -pg 1 -lvl 3 -y 100
 preplace inst soc_system.hps_0.f2s_periph_ref_clk -pg 1
 preplace inst soc_system.hps_0.fpga_interfaces -pg 1
-preplace inst soc_system.jtag_uart_0 -pg 1 -lvl 3 -y 110
+preplace inst soc_system.jtag_uart_0 -pg 1 -lvl 3 -y 200
 preplace inst soc_system.hps_0.axi_sdram -pg 1
-preplace inst soc_system.display_ip_0 -pg 1 -lvl 3 -y 380
-preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)soc_system.display_conduit,(SLAVE)display_ip_0.conduit_end) 1 0 3 NJ 430 NJ 430 NJ
-preplace netloc POINT_TO_POINT<net_container>soc_system</net_container>(MASTER)nios2_gen2_0.irq,(SLAVE)jtag_uart_0.irq) 1 2 1 N
-preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)soc_system.hps_0_ddr,(SLAVE)hps_0.memory) 1 0 2 NJ 360 NJ
-preplace netloc FAN_OUT<net_container>soc_system</net_container>(SLAVE)nios2_gen2_0.clk,(SLAVE)address_span_extender_0.clock,(SLAVE)jtag_uart_0.clk,(SLAVE)display_ip_0.clock,(SLAVE)onchip_memory2_0.clk1,(MASTER)clk_0.clk,(SLAVE)hps_0.f2h_sdram0_clock) 1 1 2 320 410 760
-preplace netloc INTERCONNECT<net_container>soc_system</net_container>(MASTER)display_ip_0.avalon_master_0,(SLAVE)display_ip_0.avalon_slave_0,(SLAVE)jtag_uart_0.avalon_jtag_slave,(MASTER)nios2_gen2_0.data_master,(MASTER)nios2_gen2_0.instruction_master,(SLAVE)nios2_gen2_0.debug_mem_slave,(SLAVE)onchip_memory2_0.s1,(SLAVE)address_span_extender_0.windowed_slave) 1 1 3 340 30 740 370 980
+preplace inst soc_system.display_ip_0 -pg 1 -lvl 3 -y 480
+preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)soc_system.i2c_0_i2c,(SLAVE)i2c_0.i2c) 1 0 4 NJ 60 NJ 60 NJ 70 NJ
+preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)soc_system.display_conduit,(SLAVE)display_ip_0.conduit_end) 1 0 3 NJ 540 NJ 540 NJ
+preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)soc_system.hps_0_ddr,(SLAVE)hps_0.memory) 1 0 2 NJ 470 NJ
+preplace netloc INTERCONNECT<net_container>soc_system</net_container>(SLAVE)nios2_gen2_0.reset,(SLAVE)jtag_uart_0.reset,(SLAVE)D5M_top_0.reset_sink,(SLAVE)address_span_extender_0.reset,(SLAVE)i2c_0.reset,(SLAVE)display_ip_0.reset_sink,(MASTER)nios2_gen2_0.debug_reset_request,(MASTER)clk_0.clk_reset,(SLAVE)onchip_memory2_0.reset1,(MASTER)hps_0.h2f_reset) 1 1 3 380 80 880 50 1160
+preplace netloc INTERCONNECT<net_container>soc_system</net_container>(MASTER)display_ip_0.avalon_master_0,(SLAVE)address_span_extender_0.windowed_slave,(MASTER)D5M_top_0.avalon_master,(SLAVE)jtag_uart_0.avalon_jtag_slave,(MASTER)nios2_gen2_0.data_master,(SLAVE)display_ip_0.avalon_slave_0,(SLAVE)nios2_gen2_0.debug_mem_slave,(MASTER)nios2_gen2_0.instruction_master,(SLAVE)onchip_memory2_0.s1,(SLAVE)D5M_top_0.sl,(SLAVE)i2c_0.avalon_slave) 1 1 4 420 100 800 450 1180 170 1390
+preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)D5M_top_0.camera_interface,(SLAVE)soc_system.d5m_top_0_camera_interface) 1 0 4 NJ 120 NJ 120 NJ 190 NJ
 preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)soc_system.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
-preplace netloc POINT_TO_POINT<net_container>soc_system</net_container>(MASTER)address_span_extender_0.expanded_master,(SLAVE)hps_0.f2h_sdram0_data) 1 1 3 340 250 NJ 300 980
 preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)clk_0.clk_in,(SLAVE)soc_system.clk) 1 0 1 NJ
-preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)soc_system.hps_0_io,(SLAVE)hps_0.hps_io) 1 0 2 NJ 340 NJ
-preplace netloc INTERCONNECT<net_container>soc_system</net_container>(MASTER)nios2_gen2_0.debug_reset_request,(SLAVE)address_span_extender_0.reset,(MASTER)clk_0.clk_reset,(SLAVE)onchip_memory2_0.reset1,(MASTER)hps_0.h2f_reset,(SLAVE)nios2_gen2_0.reset,(SLAVE)jtag_uart_0.reset,(SLAVE)display_ip_0.reset_sink) 1 1 2 340 210 720
-levelinfo -pg 1 0 110 1020
-levelinfo -hier soc_system 120 150 460 810 1000
+preplace netloc FAN_OUT<net_container>soc_system</net_container>(SLAVE)jtag_uart_0.clk,(SLAVE)hps_0.f2h_sdram0_clock,(SLAVE)address_span_extender_0.clock,(SLAVE)i2c_0.clock,(SLAVE)nios2_gen2_0.clk,(SLAVE)D5M_top_0.clock,(MASTER)clk_0.clk,(SLAVE)onchip_memory2_0.clk1,(SLAVE)display_ip_0.clock) 1 1 3 400 520 840 30 1200
+preplace netloc EXPORT<net_container>soc_system</net_container>(SLAVE)soc_system.hps_0_io,(SLAVE)hps_0.hps_io) 1 0 2 NJ 450 NJ
+preplace netloc FAN_OUT<net_container>soc_system</net_container>(SLAVE)jtag_uart_0.irq,(MASTER)nios2_gen2_0.irq,(SLAVE)i2c_0.interrupt_sender) 1 2 2 900 310 NJ
+preplace netloc POINT_TO_POINT<net_container>soc_system</net_container>(SLAVE)hps_0.f2h_sdram0_data,(MASTER)address_span_extender_0.expanded_master) 1 1 3 420 360 NJ 470 1140
+levelinfo -pg 1 0 170 1430
+levelinfo -hier soc_system 180 210 540 950 1230 1410

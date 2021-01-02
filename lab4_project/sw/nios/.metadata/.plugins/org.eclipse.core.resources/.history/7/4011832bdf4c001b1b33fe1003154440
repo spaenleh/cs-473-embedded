@@ -1,0 +1,456 @@
+/*
+ * "Hello World" example.
+ *
+ * This example prints 'Hello from Nios II' to the STDOUT stream. It runs on
+ * the Nios II 'standard', 'full_featured', 'fast', and 'low_cost' example
+ * designs. It runs with or without the MicroC/OS-II RTOS and requires a STDOUT
+ * device in your system's hardware.
+ * The memory footprint of this hosted application is ~69 kbytes by default
+ * using the standard reference design.
+ *
+ * For a reduced footprint version of this template, and an explanation of how
+ * to reduce the memory footprint for a given application, see the
+ * "small_hello_world" template.
+ *
+ */
+
+#include <stdbool.h>
+#include <inttypes.h>
+#include <stdio.h>
+#include "system.h"
+#include "io.h"
+//#include "demo_i2c.c"
+
+
+#define REG_CMD			0
+#define REG_DATA		2
+#define REG_S_INSTR	4
+#define REG_S_POLL	6
+#define ADRR				DISPLAY_IP_0_BASE
+#define DELAY				20
+#define CAMPARAMS 	0b00000111
+
+#define NPIX		240*320*4
+
+
+// prototypes
+void delay_ms(int duration);
+void delay_clk(int number);
+void send_reset();
+void LCD_init();
+void fill_frame(int offset, int color);
+void clear_frame(int offset);
+void fill_square(int col, int line, int color);
+void CAM_init();
+void new_cam_init();
+void cam_write(uint8_t command);
+
+
+int main()
+{
+	printf("Hello from Nios II!\n");
+
+	// write in the SDRAM with the alterafs library
+	clear_frame(0);
+	clear_frame(NPIX);
+
+	//CAM_init();
+	new_cam_init();
+	LCD_init();
+
+	//test cam
+	cam_write(0b00001100);
+	cam_write(0b00010100);
+
+
+	//IOWR_8DIRECT(D5M_TOP_0_BASE, 0, 0b00001100); //Start frame 01 and enable avalon master (also enable clkgen en cam)
+	//IOWR_8DIRECT(D5M_TOP_0_BASE, 0, 0b00001111);
+	// Display bit is at 1 and reset bit is at 0
+	IOWR_16DIRECT(ADRR, REG_S_INSTR, 0b10000000);
+	//uint8_t frame_cmd = 0b00001111;
+
+	while(1){
+		/*
+		while((IORD_8DIRECT(D5M_TOP_0_BASE, 0)&0b00100000) != 0x00)
+		{
+			delay_clk(1000);
+
+		}
+		frame_cmd = (~frame_cmd & 0b00011000) | CAMPARAMS;
+		IOWR_8DIRECT(D5M_TOP_0_BASE, 0, frame_cmd);
+		*/
+
+
+		// delay_ms(100);
+		// IOWR_16DIRECT(ADRR, REG_S_INSTR, 0b00000000);
+	}
+	return 0;
+}
+
+void fill_frame(int offset, int color){
+	printf("writing frame with offset %d\n", offset);
+	for(int i=0; i< NPIX;i++) {
+		IOWR_32DIRECT(HPS_0_BRIDGES_BASE + offset + i*4, 0, color);
+	}
+	printf("Finished filling memory\n");
+}
+
+void fill_square(int col, int line, int color){
+	int i, j;
+	for(i=20*col; i<20*(col+1); i++){
+		for(j=20*line; j<20*(line+1); j++){
+			IOWR_32DIRECT(HPS_0_BRIDGES_BASE + 0 + (i+320*j)*4, 0, color);
+			IOWR_32DIRECT(HPS_0_BRIDGES_BASE + NPIX + (i+320*j)*4, 0, color);
+		}
+	}
+}
+
+void clear_frame(int offset){
+	printf("writing frame with offset %d\n", offset);
+	for(int i=0; i< NPIX;i++) {
+		IOWR_32DIRECT(HPS_0_BRIDGES_BASE + offset + i*4, 0, 0x00);
+	}
+	printf("Finished clearing memory\n");
+}
+
+void CAM_init(){
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 0, 0b00000000);
+
+	//I2C commands for TRDB-D5M
+	bool i2c_reponse = false;
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 0, 0b00000010); // enable clk_gen
+	i2c_reponse = main_i2c();
+	if(i2c_reponse){
+		printf("Response from I2C is ok\n" );
+	}
+
+	//IOWR_8DIRECT(D5M_TOP_0_BASE, 0, 0b00000100); //enable avalon master (enable also the the cam)
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 0, 0b00000110);
+
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 1, 0x55);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 2, 0x55);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 3, 0x55);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 4, 0x56);
+
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 5, 0x00);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 6, 0x00);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 7, 0x00);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 8, 0x00);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 9, 0x00);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 10, 0x00);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 11, 0x00);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 12, 0x00);
+
+
+}
+
+void new_cam_init(){
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 0, 0b00000000);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 0, 0b00000100);
+
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 1, 0x55);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 2, 0x55);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 3, 0x55);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 4, 0x56);
+
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 5, 0x00);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 6, 0x00);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 7, 0x00);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 8, 0x00);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 9, 0x00);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 10, 0x00);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 11, 0x00);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 12, 0x00);
+
+}
+
+void cam_write(uint8_t command){
+	uint8_t tmp;
+	printf("write frame 1\n");
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 0, command);
+
+	tmp = IORD_8DIRECT(D5M_TOP_0_BASE, 0);
+
+	if((tmp&0b00100000) != 0)
+	{
+		printf("busy\n");
+	}
+
+	while((IORD_8DIRECT(D5M_TOP_0_BASE, 0)&0b00100000) != 0x00)
+	{
+		delay_clk(1000000);
+		printf(".");
+	}
+	tmp = IORD_8DIRECT(D5M_TOP_0_BASE, 0);
+	printf("\nend write frame 1\n");
+}
+
+void LCD_init(){
+	send_reset();
+	// Exit sleep
+	IOWR_16DIRECT(ADRR, REG_CMD, 0x11);
+	delay_clk(DELAY);
+
+	// Power CTRL B
+	IOWR_16DIRECT(ADRR, REG_CMD, 0xCF);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x81);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0xC0); // 0x30 selon datasheet
+	delay_clk(DELAY);
+
+	// power on sequence control
+	IOWR_16DIRECT(ADRR, REG_CMD, 0xED);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x64);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x03);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x12);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x81);
+	delay_clk(DELAY);
+	// Driver timing control A
+	IOWR_16DIRECT(ADRR, REG_CMD, 0xE8);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x85);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x01);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x798); // should not be a problem since we have 16bits
+	delay_clk(DELAY);
+	// Power control A
+	IOWR_16DIRECT(ADRR, REG_CMD, 0xCB);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x39);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x2C);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x34);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x02);
+	delay_clk(DELAY);
+	// pump ratio control
+	IOWR_16DIRECT(ADRR, REG_CMD, 0xF7);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x20);
+	delay_clk(DELAY);
+	// Driver timing control B
+	IOWR_16DIRECT(ADRR, REG_CMD, 0xEA);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	delay_clk(DELAY);
+	// Frame control
+	IOWR_16DIRECT(ADRR, REG_CMD, 0xB1);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x1B);
+	delay_clk(DELAY);
+	// Display function control
+	IOWR_16DIRECT(ADRR, REG_CMD, 0xB6);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x0A);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0xA2);
+	delay_clk(DELAY);
+	// Power control 1
+	IOWR_16DIRECT(ADRR, REG_CMD, 0xC0);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x05);
+	delay_clk(DELAY);
+	// Power control 2
+	IOWR_16DIRECT(ADRR, REG_CMD, 0xC1);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x11);
+	delay_clk(DELAY);
+	// VCM control 1
+	IOWR_16DIRECT(ADRR, REG_CMD, 0xC5);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x45);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x45);
+	delay_clk(DELAY);
+	// VCM control 2
+	IOWR_16DIRECT(ADRR, REG_CMD, 0xC7);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0xA2);
+	delay_clk(DELAY);
+	// Memory access control
+	IOWR_16DIRECT(ADRR, REG_CMD, 0x36);
+	delay_clk(DELAY);
+	// bit MV rotates the screen 90*
+	IOWR_16DIRECT(ADRR, REG_DATA, 0b01101000); // BGR order
+	//	IOWR_16DIRECT(ADRR, REG_DATA, 0x08); // BGR order
+	delay_clk(DELAY);
+	// Enable 3G
+	IOWR_16DIRECT(ADRR, REG_CMD, 0xF2);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00); // Disable 3Gamma correction
+	delay_clk(DELAY);
+
+	// here comes the gamma correction positive
+	IOWR_16DIRECT(ADRR, REG_CMD, 0xE0);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x0F);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x26);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x24);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x0B);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x0E);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x08);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x4B);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0xA8);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x3B);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x0A);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x14);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x06);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x10);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x09);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	delay_clk(DELAY);
+
+	// here comes the gamma correction negative
+	IOWR_16DIRECT(ADRR, REG_CMD, 0xE1);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x1C);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x20);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x04);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x10);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x08);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x34);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x47);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x44);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x05);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x0B);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x09);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x2F);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x36);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x0F);
+	delay_clk(DELAY);
+
+	//	vertical
+	//	// Column address set
+	//	IOWR_16DIRECT(ADRR, REG_CMD, 0x2A);
+	//	delay_clk(DELAY);
+	//	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	//	delay_clk(DELAY);
+	//	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	//	delay_clk(DELAY);
+	//	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	//	delay_clk(DELAY);
+	//	IOWR_16DIRECT(ADRR, REG_DATA, 0xEF);
+	//	delay_clk(DELAY);
+	//	// Page address set
+	//	IOWR_16DIRECT(ADRR, REG_CMD, 0x2B);
+	//	delay_clk(DELAY);
+	//	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	//	delay_clk(DELAY);
+	//	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	//	delay_clk(DELAY);
+	//	IOWR_16DIRECT(ADRR, REG_DATA, 0x01);
+	//	delay_clk(DELAY);
+	//	IOWR_16DIRECT(ADRR, REG_DATA, 0x3F);
+	//	delay_clk(DELAY);
+
+	//	horizontal
+	// Column address set
+	IOWR_16DIRECT(ADRR, REG_CMD, 0x2A);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x01);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x3F);
+	delay_clk(DELAY);
+
+	// Page address set
+	IOWR_16DIRECT(ADRR, REG_CMD, 0x2B);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0xEF);
+	delay_clk(DELAY);
+	// COLMOD : pixel format set
+	IOWR_16DIRECT(ADRR, REG_CMD, 0x3A);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x55);
+	delay_clk(DELAY);
+	// Interface control
+	IOWR_16DIRECT(ADRR, REG_CMD, 0xF6);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x01);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x30);
+	delay_clk(DELAY);
+	IOWR_16DIRECT(ADRR, REG_DATA, 0x00);
+	delay_clk(DELAY);
+	// display on
+	IOWR_16DIRECT(ADRR, REG_CMD, 0x29);
+	delay_clk(DELAY);
+
+}
+
+void send_reset(){
+	//uint16_t value = IORD_16DIRECT()
+	IOWR_16DIRECT(ADRR, REG_S_INSTR, 0b00000000);
+	delay_ms(1);
+	IOWR_16DIRECT(ADRR, REG_S_INSTR, 0b01000000);
+	delay_ms(10);
+	IOWR_16DIRECT(ADRR, REG_S_INSTR, 0b00000000);
+	delay_ms(120);
+}
+
+// wait for duration ms
+void delay_ms(int duration){
+	int i, j;
+	for(j=0; j<200; j++){
+		for(i=0; i<50*duration; i++);
+	}
+}
+
+// wait for duration ms
+void delay_clk(int number){
+	int i;
+	for(i=0; i<number; i++);
+}
