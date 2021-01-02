@@ -59,6 +59,7 @@ architecture comp of display_ip is
 	signal enable_send, next_enable_send : std_logic := '0';
 	signal busy_pixel : std_logic;
 	signal fifo_read : std_logic;
+	signal fifo_empty : std_logic;
 	signal fifo_data	: std_logic_vector(15 downto 0) := (others => '1');
 	signal Data_pixel	: std_logic_vector(15 downto 0) := (others => '1'); -- from pixel_send module
 	signal D_Cx_pixel		: std_logic := '0'; -- from pixel_send module
@@ -78,7 +79,8 @@ architecture comp of display_ip is
 			-- frame_state : out std_logic_vector(1 downto 0);
 			-- from other modules
 			Fifo_data : in std_logic_vector(15 downto 0);
-			Fido_read : out std_logic;
+			Fifo_read : out std_logic;
+			Fifo_empty : in std_logic;
 			-- External interface (i.e. conduit).
 			LCD_D            : out std_logic_vector(15 downto 0);
 			LCD_RS_D_Cx      : out std_logic;
@@ -124,7 +126,8 @@ begin
 		busy => busy_pixel,
 		-- from other modules
 		Fifo_data => fifo_data,
-		Fido_read => fifo_read,
+		Fifo_read => fifo_read,
+		Fifo_empty => fifo_empty,
 		-- External interface (i.e. conduit).
 		LCD_D => Data_pixel,
 		LCD_RS_D_Cx => D_Cx_pixel,
@@ -144,7 +147,7 @@ begin
 		--Fifo
 		fifoRead => fifo_read,
 		fifoDataOut => fifo_data,
-		fifoEmpty => poubelle, -- modify if you need it
+		fifoEmpty => fifo_empty,
 		--Avalon
 		readDataValid => AM_readDataValid,
 		readData => AM_readData,

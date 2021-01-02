@@ -15,7 +15,8 @@ entity pixel_send is
 
 	-- from other modules
 	Fifo_data : in std_logic_vector(15 downto 0);
-	Fido_read : out std_logic;
+	Fifo_read : out std_logic;
+	Fifo_empty : in std_logic;
 
 	-- External interface (i.e. conduit).
 	LCD_D            : out std_logic_vector(15 downto 0);
@@ -37,7 +38,7 @@ architecture comp of pixel_send is
 	constant MEM_WRITE : std_logic_vector(15 downto 0) := "0000000000101100"; -- Memory write command
 
 	-- State register
-    type state_type is (STATE_IDLE, STATE_OUT, STATE_OUT_1, STATE_OUT_2, STATE_OUT_3, STATE_OUT_WAIT, STATE_VALID, STATE_VALID_1, STATE_VALID_2, STATE_VALID_3, STATE_GET_PIX, STATE_HAVE_PIX);
+    type state_type is (STATE_IDLE, STATE_OUT, STATE_OUT_1, STATE_OUT_2, STATE_OUT_3, STATE_OUT_WAIT, STATE_VALID, STATE_VALID_1, STATE_VALID_2, STATE_VALID_3, STATE_WAIT_EMPTY, STATE_GET_PIX, STATE_HAVE_PIX);
     signal reg_state, next_reg_state : state_type;
 
 	signal busy_pixel, next_busy_pixel : std_logic := '0';
@@ -81,7 +82,7 @@ begin
 	LCD_RS_D_Cx <= D_Cx_pixel;
 	LCD_WR_N 	<= WR_N_pixel;
 	busy		<= busy_pixel;
-	Fido_read	<= fifo_read_pixel;
+	Fifo_read	<= fifo_read_pixel;
 
 	next_line_reg_counter <= (others => '0') when line_reg_counter = LINE_MAX else line_reg_counter+1 when col_reg_counter >= COL_MAX and reg_state = STATE_HAVE_PIX and line_reg_counter < LINE_MAX else line_reg_counter;
 	next_col_reg_counter <= (others => '0') when col_reg_counter = COL_MAX and reg_state = STATE_HAVE_PIX else col_reg_counter+1 when reg_state = STATE_HAVE_PIX and col_reg_counter < COL_MAX else col_reg_counter;
@@ -105,6 +106,14 @@ begin
 				else
 					next_reg_state <= STATE_IDLE;
 					next_busy_pixel <= '0';
+				end if;
+
+			when STATE_WAIT_EMPTY =>
+				if fifo_empty = '1' then
+					next_reg_state <= STATE_WAIT_EMPTY;
+				else
+					next_reg_state <= STATE_GET_PIX;
+					next_fifo_read_pixel <= '1';
 				end if;
 
 			when STATE_GET_PIX =>
@@ -156,6 +165,8 @@ begin
 					if line_reg_counter = LINE_MAX then
 						next_busy_pixel <= '0';
 						next_reg_state <= STATE_IDLE;
+					elsif fifo_empty = '1' then
+						next_reg_state <= STATE_WAIT_EMPTY;
 					else
 						next_reg_state <= STATE_GET_PIX;
 						next_fifo_read_pixel <= '1';

@@ -1,4 +1,5 @@
 fifo_inst : fifo PORT MAP (
+		aclr	 => aclr_sig,
 		clock	 => clock_sig,
 		data	 => data_sig,
 		rdreq	 => rdreq_sig,

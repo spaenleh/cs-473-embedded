@@ -41,7 +41,7 @@ void LCD_init();
 void fill_frame(int offset, int color);
 void clear_frame(int offset);
 void fill_square(int col, int line, int color);
-void CAM_init();
+//void CAM_init();
 void new_cam_init();
 void cam_write(uint8_t command);
 
@@ -54,32 +54,34 @@ int main()
 	clear_frame(0);
 	clear_frame(NPIX);
 
-	//CAM_init();
+//	CAM_init();
 	new_cam_init();
 	LCD_init();
 
 	//test cam
-	cam_write(0b00001100);
-	cam_write(0b00010100);
+	cam_write(0b00001111);
+	cam_write(0b00010111);
 
 
 	//IOWR_8DIRECT(D5M_TOP_0_BASE, 0, 0b00001100); //Start frame 01 and enable avalon master (also enable clkgen en cam)
-	//IOWR_8DIRECT(D5M_TOP_0_BASE, 0, 0b00001111);
+//	IOWR_8DIRECT(D5M_TOP_0_BASE, 0, 0b00001111);
 	// Display bit is at 1 and reset bit is at 0
 	IOWR_16DIRECT(ADRR, REG_S_INSTR, 0b10000000);
-	//uint8_t frame_cmd = 0b00001111;
+//	uint8_t frame_cmd = 0b00001111;
 
 	while(1){
-		/*
-		while((IORD_8DIRECT(D5M_TOP_0_BASE, 0)&0b00100000) != 0x00)
-		{
-			delay_clk(1000);
-
-		}
-		frame_cmd = (~frame_cmd & 0b00011000) | CAMPARAMS;
-		IOWR_8DIRECT(D5M_TOP_0_BASE, 0, frame_cmd);
-		*/
-
+//		delay_ms(100);
+		cam_write(0b00001111);
+//		delay_ms(100);
+		cam_write(0b00010111);
+//		while((IORD_8DIRECT(D5M_TOP_0_BASE, 0)&0b00100000) != 0x00)
+//		{
+//			delay_clk(1000);
+//
+//		}
+//		frame_cmd = (~frame_cmd & 0b00011000) | CAMPARAMS;
+//		IOWR_8DIRECT(D5M_TOP_0_BASE, 0, frame_cmd);
+//
 
 		// delay_ms(100);
 		// IOWR_16DIRECT(ADRR, REG_S_INSTR, 0b00000000);
@@ -114,12 +116,12 @@ void clear_frame(int offset){
 }
 /*
 void CAM_init(){
-	IOWR_8DIRECT(D5M_SIMU_0_BASE, 0, 0b00000000);
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 0, 0b00000000);
 
 
 	//I2C commands for TRDB-D5M
 	bool i2c_reponse = false;
-	IOWR_8DIRECT(D5M_SIMU_0_BASE, 0, 0b00000010); // enable clk_gen
+	IOWR_8DIRECT(D5M_TOP_0_BASE, 0, 0b00000010); // enable clk_gen
 	i2c_reponse = main_i2c();
 	if(i2c_reponse){
 		printf("Response from I2C is ok\n" );
@@ -141,9 +143,9 @@ void CAM_init(){
 	IOWR_8DIRECT(D5M_TOP_0_BASE, 10, 0x00);
 	IOWR_8DIRECT(D5M_TOP_0_BASE, 11, 0x00);
 	IOWR_8DIRECT(D5M_TOP_0_BASE, 12, 0x00);
+}
+*/
 
-
-}*/
 
 void new_cam_init(){
 	IOWR_8DIRECT(D5M_SIMU_0_BASE, 0, 0b00000000);
@@ -165,12 +167,15 @@ void new_cam_init(){
 
 }
 
+
 void cam_write(uint8_t command){
 	uint8_t tmp;
-	printf("write frame 1\n");
+	printf("write frame %d\n", command>>3);
 	IOWR_8DIRECT(D5M_SIMU_0_BASE, 0, command);
+//	IOWR_8DIRECT(D5M_TOP_0_BASE, 0, command);
 
 	tmp = IORD_8DIRECT(D5M_SIMU_0_BASE, 0);
+//	tmp = IORD_8DIRECT(D5M_TOP_0_BASE, 0);
 
 	if((tmp&0b00100000) != 0)
 	{
@@ -178,12 +183,14 @@ void cam_write(uint8_t command){
 	}
 
 	while((IORD_8DIRECT(D5M_SIMU_0_BASE, 0)&0b00100000) != 0x00)
+//	while((IORD_8DIRECT(D5M_TOP_0_BASE, 0)&0b00100000) != 0x00)
 	{
 		delay_clk(1000000);
 		printf(".");
 	}
 	tmp = IORD_8DIRECT(D5M_SIMU_0_BASE, 0);
-	printf("\nend write frame 1\n");
+//	tmp = IORD_8DIRECT(D5M_TOP_0_BASE, 0);
+	printf("\nend write frame %d\n", command>>3);
 }
 
 void LCD_init(){

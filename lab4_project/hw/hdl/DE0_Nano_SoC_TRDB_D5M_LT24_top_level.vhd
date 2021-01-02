@@ -204,7 +204,7 @@ component soc_system is
 			hps_0_io_hps_io_gpio_inst_GPIO53     : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO53
 			hps_0_io_hps_io_gpio_inst_GPIO54     : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO54
 			hps_0_io_hps_io_gpio_inst_GPIO61     : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO61
-			reset_reset_n                        : in    std_logic                     := 'X'--;             -- reset_n
+			reset_reset_n                        : in    std_logic                     := 'X'             -- reset_n
 --			i2c_0_i2c_scl                        : inout std_logic                     := 'X';             -- scl
 --			i2c_0_i2c_sda                        : inout std_logic                     := 'X'              -- sda
 		);
@@ -292,7 +292,7 @@ begin
         hps_0_io_hps_io_gpio_inst_GPIO40    => HPS_LTC_GPIO,
         hps_0_io_hps_io_gpio_inst_GPIO53    => HPS_LED,
         hps_0_io_hps_io_gpio_inst_GPIO54    => HPS_KEY_N,
-        hps_0_io_hps_io_gpio_inst_GPIO61    => HPS_GSENSOR_INT--,
+        hps_0_io_hps_io_gpio_inst_GPIO61    => HPS_GSENSOR_INT
 --		  i2c_0_i2c_scl                       => GPIO_1_D5M_SCLK,                        -- i2c_0_i2c.scl
 --		  i2c_0_i2c_sda                       => GPIO_1_D5M_SDATA                        --          .sda
     );

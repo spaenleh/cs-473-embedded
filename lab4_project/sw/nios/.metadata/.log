@@ -337,3 +337,230 @@ org.eclipse.core.runtime.CoreException: Cannot determine URI for '/Lab_4_bsp/sys
 
 !ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 10:55:00.836
 !MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/lab_4_full/lab_4_full.elf]
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-01-02 11:02:24.475
+!MESSAGE Failed to refresh projects from index changes
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
+	at org.eclipse.egit.ui.Activator$ResourceRefreshJob$1.run(Activator.java:446)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2241)
+	at org.eclipse.egit.ui.Activator$ResourceRefreshJob.run(Activator.java:431)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Contains: The project description file (.project) for 'Lab_4_bsp' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+!SUBENTRY 1 org.eclipse.core.resources 4 271 2021-01-02 11:02:24.476
+!MESSAGE Errors occurred while refreshing resources with the local file system.
+!SUBENTRY 2 org.eclipse.core.resources 4 567 2021-01-02 11:02:24.476
+!MESSAGE The project description file (.project) for 'Lab_4_bsp' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-01-02 11:02:24.499
+!MESSAGE Failed to refresh projects from index changes
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
+	at org.eclipse.egit.ui.Activator$ResourceRefreshJob$1.run(Activator.java:446)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2241)
+	at org.eclipse.egit.ui.Activator$ResourceRefreshJob.run(Activator.java:431)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Contains: The project description file (.project) for 'application' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+!SUBENTRY 1 org.eclipse.core.resources 4 271 2021-01-02 11:02:24.499
+!MESSAGE Errors occurred while refreshing resources with the local file system.
+!SUBENTRY 2 org.eclipse.core.resources 4 567 2021-01-02 11:02:24.499
+!MESSAGE The project description file (.project) for 'application' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-01-02 11:02:24.537
+!MESSAGE Failed to refresh projects from index changes
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
+	at org.eclipse.egit.ui.Activator$ResourceRefreshJob$1.run(Activator.java:446)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2241)
+	at org.eclipse.egit.ui.Activator$ResourceRefreshJob.run(Activator.java:431)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Contains: The project description file (.project) for 'lab_4_full_bsp' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+!SUBENTRY 1 org.eclipse.core.resources 4 271 2021-01-02 11:02:24.537
+!MESSAGE Errors occurred while refreshing resources with the local file system.
+!SUBENTRY 2 org.eclipse.core.resources 4 567 2021-01-02 11:02:24.537
+!MESSAGE The project description file (.project) for 'lab_4_full_bsp' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+
+!ENTRY org.eclipse.cdt.codan.core 4 1 2021-01-02 11:02:26.503
+!MESSAGE Internal Error
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/application/demo_i2c.c' does not exist.
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:334)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:208)
+	at org.eclipse.core.internal.resources.Resource.createMarker(Resource.java:715)
+	at org.eclipse.cdt.codan.internal.core.model.CodanProblemMarker.createMarker(CodanProblemMarker.java:80)
+	at org.eclipse.cdt.codan.internal.core.model.CodanMarkerProblemReporter$2.run(CodanMarkerProblemReporter.java:199)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2241)
+	at org.eclipse.cdt.codan.internal.core.model.CodanMarkerProblemReporter.reconcileMarkers(CodanMarkerProblemReporter.java:185)
+	at org.eclipse.cdt.codan.internal.core.model.CodanMarkerProblemReporter.done(CodanMarkerProblemReporter.java:177)
+	at org.eclipse.cdt.codan.core.model.AbstractChecker.after(AbstractChecker.java:225)
+	at org.eclipse.cdt.codan.internal.core.CodanRunner.processResource(CodanRunner.java:101)
+	at org.eclipse.cdt.codan.internal.core.CodanRunner.runInEditor(CodanRunner.java:46)
+	at org.eclipse.cdt.codan.internal.core.CodanBuilder.processResource(CodanBuilder.java:126)
+	at org.eclipse.cdt.codan.core.cxx.internal.model.CxxCodanReconciler.reconciledAst(CxxCodanReconciler.java:37)
+	at org.eclipse.cdt.codan.internal.ui.cxx.CodanCReconciler.reconciled(CodanCReconciler.java:57)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3086)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:99)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:63)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:87)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:349)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2021-01-02 11:02:26.504
+!MESSAGE Resource '/application/demo_i2c.c' does not exist.
+
+!ENTRY org.eclipse.core.resources 4 568 2021-01-02 11:07:25.223
+!MESSAGE Could not write metadata for '/Lab_4_bsp'.
+!STACK 0
+java.io.FileNotFoundException: /home/vm/Desktop/shared/lab4_project/sw/nios/.metadata/.plugins/org.eclipse.core.resources/.projects/Lab_4_bsp/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1769)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1853)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1222)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1163)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:52)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 11:35:36.379
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 11:35:37.866
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/lab_4_full/lab_4_full.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 11:36:08.150
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 11:36:08.348
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 11:36:09.771
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/lab_4_full/lab_4_full.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 11:38:22.894
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 11:38:23.171
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 11:38:24.609
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/lab_4_full/lab_4_full.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 11:39:10.399
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/lab_4_full/lab_4_full.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 11:39:12.714
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --tcpport=auto --accept-bad-sysid]
+!SESSION 2021-01-02 15:26:46.997 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization /opt/intelFPGA/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization /opt/intelFPGA/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2021-01-02 15:27:01.388
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 15:33:24.940
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2021-01-02 15:33:26.126
+!MESSAGE Failed Executing: [nios2-download, '--cable=DE-SoC on localhost [1-1]', --device=2, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 15:33:26.191
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/lab_4_full/lab_4_full.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 15:35:12.171
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 15:35:13.038
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2021-01-02 15:35:14.895
+!MESSAGE Failed Executing: [nios2-download, '--cable=DE-SoC on localhost [1-1]', --device=2, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 15:35:14.996
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/lab_4_full/lab_4_full.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 15:35:34.435
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 15:35:34.710
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2021-01-02 15:35:36.004
+!MESSAGE Failed Executing: [nios2-download, '--cable=DE-SoC on localhost [1-1]', --device=2, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 15:35:36.037
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/lab_4_full/lab_4_full.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 15:37:20.014
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 15:37:20.285
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2021-01-02 15:37:21.392
+!MESSAGE Failed Executing: [nios2-download, '--cable=DE-SoC on localhost [1-1]', --device=2, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 15:37:21.419
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/lab_4_full/lab_4_full.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 16:10:45.106
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2021-01-02 16:10:46.396
+!MESSAGE Failed Executing: [nios2-download, '--cable=DE-SoC on localhost [1-1]', --device=2, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 16:10:46.426
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/lab_4_full/lab_4_full.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 16:12:44.360
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 16:12:44.604
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2021-01-02 16:12:45.907
+!MESSAGE Failed Executing: [nios2-download, '--cable=DE-SoC on localhost [1-1]', --device=2, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 16:12:45.952
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/lab_4_full/lab_4_full.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 16:15:22.977
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2021-01-02 16:15:24.225
+!MESSAGE Failed Executing: [nios2-download, '--cable=DE-SoC on localhost [1-1]', --device=2, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 16:15:24.271
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project/sw/nios/lab_4_full/lab_4_full.elf]

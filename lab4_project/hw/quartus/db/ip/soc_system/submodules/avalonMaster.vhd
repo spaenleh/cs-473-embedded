@@ -59,6 +59,7 @@ architecture rtl of AvalonMaster is
 	component fifo
 		PORT
 		(
+			aclr		: IN STD_LOGIC ;
 			clock		: IN STD_LOGIC ;
 			data		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
 			rdreq		: IN STD_LOGIC ;
@@ -73,6 +74,7 @@ begin
 
 	FIFO_0 : FIFO
 	PORT MAP (
+			aclr  => not nReset,
 			clock => clk,
 			data => readData(15 downto 0),
 			rdreq => fifoRead,

@@ -6,7 +6,7 @@
 #include "i2c/i2c.h"
 
 #define I2C_FREQ              (50000000) /* Clock frequency driving the i2c core: 50 MHz in this example (ADAPT TO YOUR DESIGN) */
-#define TRDB_D5M_I2C_ADDRESS  (0xba)
+#define TRDB_D5M_I2C_ADDRESS  0x0//I2C_0_BASE
 
 #define TRDB_D5M_0_I2C_0_BASE 0x0 //I2C_0_BASE   /* i2c base address from system.h (ADAPT TO YOUR DESIGN) */
 

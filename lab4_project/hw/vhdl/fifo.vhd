@@ -42,6 +42,7 @@ USE altera_mf.all;
 ENTITY fifo IS
 	PORT
 	(
+		aclr		: IN STD_LOGIC ;
 		clock		: IN STD_LOGIC ;
 		data		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
 		rdreq		: IN STD_LOGIC ;
@@ -76,6 +77,7 @@ ARCHITECTURE SYN OF fifo IS
 		use_eab		: STRING
 	);
 	PORT (
+			aclr	: IN STD_LOGIC ;
 			clock	: IN STD_LOGIC ;
 			data	: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
 			rdreq	: IN STD_LOGIC ;
@@ -94,7 +96,7 @@ BEGIN
 	scfifo_component : scfifo
 	GENERIC MAP (
 		add_ram_output_register => "OFF",
-		almost_empty_value => 5,
+		almost_empty_value => 7,
 		intended_device_family => "Cyclone V",
 		lpm_numwords => 32,
 		lpm_showahead => "OFF",
@@ -106,6 +108,7 @@ BEGIN
 		use_eab => "ON"
 	)
 	PORT MAP (
+		aclr => aclr,
 		clock => clock,
 		data => data,
 		rdreq => rdreq,
@@ -123,7 +126,7 @@ END SYN;
 -- CNX file retrieval info
 -- ============================================================
 -- Retrieval info: PRIVATE: AlmostEmpty NUMERIC "1"
--- Retrieval info: PRIVATE: AlmostEmptyThr NUMERIC "5"
+-- Retrieval info: PRIVATE: AlmostEmptyThr NUMERIC "7"
 -- Retrieval info: PRIVATE: AlmostFull NUMERIC "0"
 -- Retrieval info: PRIVATE: AlmostFullThr NUMERIC "-1"
 -- Retrieval info: PRIVATE: CLOCKS_ARE_SYNCHRONIZED NUMERIC "0"
@@ -149,14 +152,14 @@ END SYN;
 -- Retrieval info: PRIVATE: rsEmpty NUMERIC "1"
 -- Retrieval info: PRIVATE: rsFull NUMERIC "0"
 -- Retrieval info: PRIVATE: rsUsedW NUMERIC "0"
--- Retrieval info: PRIVATE: sc_aclr NUMERIC "0"
+-- Retrieval info: PRIVATE: sc_aclr NUMERIC "1"
 -- Retrieval info: PRIVATE: sc_sclr NUMERIC "0"
 -- Retrieval info: PRIVATE: wsEmpty NUMERIC "0"
 -- Retrieval info: PRIVATE: wsFull NUMERIC "1"
 -- Retrieval info: PRIVATE: wsUsedW NUMERIC "0"
 -- Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 -- Retrieval info: CONSTANT: ADD_RAM_OUTPUT_REGISTER STRING "OFF"
--- Retrieval info: CONSTANT: ALMOST_EMPTY_VALUE NUMERIC "5"
+-- Retrieval info: CONSTANT: ALMOST_EMPTY_VALUE NUMERIC "7"
 -- Retrieval info: CONSTANT: INTENDED_DEVICE_FAMILY STRING "Cyclone V"
 -- Retrieval info: CONSTANT: LPM_NUMWORDS NUMERIC "32"
 -- Retrieval info: CONSTANT: LPM_SHOWAHEAD STRING "OFF"
@@ -166,6 +169,7 @@ END SYN;
 -- Retrieval info: CONSTANT: OVERFLOW_CHECKING STRING "ON"
 -- Retrieval info: CONSTANT: UNDERFLOW_CHECKING STRING "ON"
 -- Retrieval info: CONSTANT: USE_EAB STRING "ON"
+-- Retrieval info: USED_PORT: aclr 0 0 0 0 INPUT NODEFVAL "aclr"
 -- Retrieval info: USED_PORT: almost_empty 0 0 0 0 OUTPUT NODEFVAL "almost_empty"
 -- Retrieval info: USED_PORT: clock 0 0 0 0 INPUT NODEFVAL "clock"
 -- Retrieval info: USED_PORT: data 0 0 16 0 INPUT NODEFVAL "data[15..0]"
@@ -173,6 +177,7 @@ END SYN;
 -- Retrieval info: USED_PORT: q 0 0 16 0 OUTPUT NODEFVAL "q[15..0]"
 -- Retrieval info: USED_PORT: rdreq 0 0 0 0 INPUT NODEFVAL "rdreq"
 -- Retrieval info: USED_PORT: wrreq 0 0 0 0 INPUT NODEFVAL "wrreq"
+-- Retrieval info: CONNECT: @aclr 0 0 0 0 aclr 0 0 0 0
 -- Retrieval info: CONNECT: @clock 0 0 0 0 clock 0 0 0 0
 -- Retrieval info: CONNECT: @data 0 0 16 0 data 0 0 16 0
 -- Retrieval info: CONNECT: @rdreq 0 0 0 0 rdreq 0 0 0 0
