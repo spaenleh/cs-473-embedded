@@ -1,0 +1,213 @@
+!SESSION 2021-01-02 18:11:14.321 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization /opt/intelFPGA/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization /opt/intelFPGA/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2021-01-02 18:11:23.535
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-01-02 18:12:30.452
+!MESSAGE Indexed 'Lab_4_new' (4 sources, 39 headers) in 3.96 sec: 1,908 declarations; 4,136 references; 6 unresolved inclusions; 0 syntax errors; 237 unresolved names (3.8%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-01-02 18:12:59.553
+!MESSAGE Indexed 'Lab_4_new_bsp' (79 sources, 146 headers) in 5.01 sec: 5,244 declarations; 8,431 references; 1 unresolved inclusions; 2 syntax errors; 9 unresolved names (0.066%)
+
+!ENTRY com.altera.sbtgui.core 4 0 2021-01-02 18:13:16.453
+!MESSAGE Error executing 'nios2-bsp-generate-files --bsp-dir . --settings settings.bsp', unexpected return code 1.
+
+Error message:
+
+SEVERE: File not found: /home/vm/Documents/lab4_project_merged/hw/quartus/soc_system.sopcinfo
+SEVERE: File not found: /home/vm/Documents/lab4_project_merged/hw/quartus/soc_system.sopcinfo
+SEVERE: nios2-bsp-generate-files failed.
+
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-01-02 18:16:11.389
+!MESSAGE Indexed 'lab_4_miniproject_bsp' (79 sources, 107 headers) in 4.79 sec: 3,314 declarations; 5,727 references; 44 unresolved inclusions; 6 syntax errors; 87 unresolved names (0.95%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-01-02 18:16:16.830
+!MESSAGE Indexed 'lab_4_miniproject' (1 sources, 21 headers) in 0.156 sec: 983 declarations; 1,599 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:19:04.881
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:19:06.274
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject/lab_4_miniproject.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:20:42.586
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:20:43.146
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:20:44.699
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject/lab_4_miniproject.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:24:31.894
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:24:33.523
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject/lab_4_miniproject.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:25:19.367
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:25:20.781
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject/lab_4_miniproject.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:26:57.681
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:26:59.100
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject/lab_4_miniproject.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:27:24.310
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:27:25.703
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject/lab_4_miniproject.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:27:40.948
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:27:42.346
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject/lab_4_miniproject.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:28:04.686
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:28:04.898
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:28:06.327
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject/lab_4_miniproject.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:28:19.116
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:28:19.311
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:28:20.751
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject/lab_4_miniproject.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:28:44.345
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:28:44.534
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:28:45.964
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject/lab_4_miniproject.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:36:25.563
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:36:26.931
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject/lab_4_miniproject.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:36:40.015
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:36:40.177
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:36:41.603
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject/lab_4_miniproject.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:52:51.979
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 18:52:53.353
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject/lab_4_miniproject.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 19:17:27.973
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 19:17:29.383
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject/lab_4_miniproject.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 19:19:31.399
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 19:19:31.640
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 19:19:33.083
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject/lab_4_miniproject.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 19:35:07.377
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 19:35:08.755
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject/lab_4_miniproject.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 19:35:43.825
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [1-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 19:35:44.428
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2021-01-02 19:35:45.865
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [1-1]' --device=2 --instance=0 --go --accept-bad-sysid /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject/lab_4_miniproject.elf]
+!SESSION 2021-01-02 19:56:51.892 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization /opt/intelFPGA/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization /opt/intelFPGA/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2021-01-02 19:57:07.145
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-01-02 19:57:50.475
+!MESSAGE Indexed 'lab_4_full' (3 sources, 39 headers) in 2.81 sec: 1,862 declarations; 3,571 references; 4 unresolved inclusions; 0 syntax errors; 119 unresolved names (2.1%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-01-02 19:58:26.271
+!MESSAGE Indexed 'lab_4_full_bsp' (79 sources, 146 headers) in 5.98 sec: 5,244 declarations; 8,431 references; 1 unresolved inclusions; 2 syntax errors; 9 unresolved names (0.066%)
+
+!ENTRY com.altera.sbtgui.core 4 0 2021-01-02 19:58:39.332
+!MESSAGE Error executing 'nios2-bsp-generate-files --bsp-dir . --settings settings.bsp', unexpected return code 1.
+
+Error message:
+
+SEVERE: File not found: /home/vm/Desktop/shared/lab4_project/hw/quartus/soc_system.sopcinfo
+SEVERE: File not found: /home/vm/Desktop/shared/lab4_project/hw/quartus/soc_system.sopcinfo
+SEVERE: nios2-bsp-generate-files failed.
+

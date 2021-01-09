@@ -1,0 +1,9 @@
+11:03:45 **** Incremental Build of configuration Nios II for project camera ****
+make all 
+Info: Building /home/vm/Desktop/shared/lab_4_project_final_CAM/sw/nios/camera_bsp/
+make --no-print-directory -C /home/vm/Desktop/shared/lab_4_project_final_CAM/sw/nios/camera_bsp/
+[BSP build complete]
+[camera build complete]
+
+11:03:45 Build Finished (took 412ms)
+

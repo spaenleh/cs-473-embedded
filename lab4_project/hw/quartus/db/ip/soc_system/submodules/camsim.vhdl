@@ -21,9 +21,13 @@ end camsim;
 
 architecture comp of camsim is
     constant color_RED      : std_logic_vector(16-1 downto 0) := "1111100000000000";
+    constant color_MAG      : std_logic_vector(16-1 downto 0) := "1111100000011111";
     constant color_GREEN    : std_logic_vector(16-1 downto 0) := "0000011111100000";
+    constant color_YEL      : std_logic_vector(16-1 downto 0) := "1111111111100000";
     constant color_BLUE     : std_logic_vector(16-1 downto 0) := "0000000000011111";
+    constant color_PINK     : std_logic_vector(16-1 downto 0) := "0000011111111111";
     constant color_WITE     : std_logic_vector(16-1 downto 0) := "1111111111111111";
+    constant color_BLACK    : std_logic_vector(16-1 downto 0) := "0000000000000000";
     
     signal compt    : unsigned(PixelCountDepth-1 downto 0) := (others => '0');
     signal compt_N  : unsigned(PixelCountDepth-1 downto 0);
@@ -51,10 +55,14 @@ begin
 	        '0';
 	
 	data_N <=   trig        when compt_N > NPixel else
-	            color_RED   when compt_N < to_unsigned(NPixel/4,compt_N'length) else
-	            color_GREEN when compt_N < to_unsigned(NPixel/4*2,compt_N'length) else
-	            color_BLUE  when compt_N < to_unsigned(NPixel/4*3,compt_N'length) else
-	            color_WITE  when compt_N < to_unsigned(NPixel,compt_N'length) else
+	            color_RED   when compt_N < to_unsigned(NPixel/4,compt_N'length) and compt_N(3) = '0' else
+	            color_MAG   when compt_N < to_unsigned(NPixel/4,compt_N'length) else
+	            color_GREEN when compt_N < to_unsigned(NPixel/4*2,compt_N'length) and compt_N(3) = '0' else
+	            color_YEL   when compt_N < to_unsigned(NPixel/4*2,compt_N'length) else
+	            color_BLUE  when compt_N < to_unsigned(NPixel/4*3,compt_N'length) and compt_N(3) = '0' else
+	            color_PINK  when compt_N < to_unsigned(NPixel/4*3,compt_N'length) else
+	            color_WITE  when compt_N < to_unsigned(NPixel,compt_N'length) and compt_N(3) = '0' else
+	            color_BLACK when compt_N < to_unsigned(NPixel,compt_N'length) else
 	            data_O;
 	
 	process(clk)

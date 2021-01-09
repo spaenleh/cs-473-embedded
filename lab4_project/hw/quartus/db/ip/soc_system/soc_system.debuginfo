@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="soc_system" kind="system" version="18.1" fabric="QSYS">
  <!-- Format version 18.1 625 (Future versions may contain additional information.) -->
- <!-- 2021.01.02.15:50:53 -->
+ <!-- 2021.01.02.19:48:40 -->
  <!-- A collection of modules and connections -->
  <parameter name="clockCrossingAdapter">
   <type>com.altera.sopcmodel.ensemble.EClockAdapter</type>
@@ -53,7 +53,7 @@
  </parameter>
  <parameter name="generationId">
   <type>int</type>
-  <value>1609598961</value>
+  <value>1609613263</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>true</visible>
@@ -55993,5 +55993,5 @@ parameters are a RESULT of the module parameters. -->
   <version>18.1</version>
  </plugin>
  <reportVersion>18.1 625</reportVersion>
- <uniqueIdentifier>080027C3160200000176C3934D52</uniqueIdentifier>
+ <uniqueIdentifier>080027C3160200000176C46D65A1</uniqueIdentifier>
 </EnsembleReport>

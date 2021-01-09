@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+newSoftwareExampleWizardPage.defaultLocation=/home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject
+newSoftwareExampleWizardPage.sopcinfoFile=/home/vm/Desktop/shared/lab4_project_LCD_CAM/hw/quartus/soc_system.sopcinfo
+newSoftwareExampleWizardPage2.newBspLocation=/home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject_bsp

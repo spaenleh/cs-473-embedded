@@ -1,0 +1,9 @@
+13:07:58 **** Incremental Build of configuration Nios II for project lab_4_miniproject ****
+make all 
+Info: Building /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject_bsp/
+make --no-print-directory -C /home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/lab_4_miniproject_bsp/
+[BSP build complete]
+[lab_4_miniproject build complete]
+
+13:07:59 Build Finished (took 566ms)
+

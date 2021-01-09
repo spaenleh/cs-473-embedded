@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/home/vm/Desktop/shared/lab_4_project_final_CAM/sw/nios/camera_bsp"/>
+			<item value="/home/vm/Desktop/shared/lab_4_project_final_CAM/sw/nios/myapplication"/>
+			<item value="/home/vm/Desktop/shared/lab4_project_cyrill/sw/nios/lab_4_full_bsp"/>
+			<item value="/home/vm/Desktop/shared/lab4_project_cyrill/sw/nios/lab_4_full"/>
+			<item value="/home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/Lab_4_new_bsp"/>
+			<item value="/home/vm/Desktop/shared/lab4_project_LCD_CAM/sw/nios/new_application"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+</section>
